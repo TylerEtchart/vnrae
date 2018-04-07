@@ -1,5 +1,6 @@
 import pickle as pkl
 import numpy as np
+import sys
 
 class FastText():
 
@@ -14,9 +15,10 @@ class FastText():
         self.vectors = np.vstack([self.vectors, np.zeros(300)])
         self.tokens.append('EOS')
         self.vectors = np.vstack([self.vectors, np.ones(300)])
+        self.EOS_index = len(self.vectors-1)
 
         #maybe useful for optimization?
-        #self.tokens = np.atleast_2d(self.tokens)
+        self.arr_tokens = np.atleast_2d(self.tokens)
 
 
     def get_indices(self, words):
@@ -26,10 +28,11 @@ class FastText():
                 index = self.tokens.index(w)
                 indices.append(index)
         return indices
-        
-        #indices = np.atleast_2d([np.squeeze(np.argwhere(self.tokens==w)) for w in words])
-        #print(indices.shape)
-        #print(indices)
+ 
+        #print("here")
+        #print(words)
+        #indices = np.atleast_1d([np.squeeze(np.argwhere(self.arr_tokens==w)) for w in words])
+        #sys.stdout.flush()
         #return indices[:,1]
     
     def get_words_from_indices(self, indices):

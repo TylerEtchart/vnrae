@@ -30,7 +30,7 @@ HIDDEN_SIZE = 300 #size of fasttext vectors
 #HIDDEN_SIZE = 256
 LEARNING_RATE = .001
 MAX_LENGTH = 256
-USE_CUDA = False
+USE_CUDA = True
 
 #
 # ===============================================
@@ -45,24 +45,16 @@ class EncoderRNN(nn.Module):
         self.hidden_size = hidden_size
         self.num_layers = num_layers
 
-        self.embedding = nn.Embedding(input_size, hidden_size)
         ftext = fasttext.FastText()
         ftextTensor = torch.FloatTensor(ftext.vectors)
-        #self.embedding = nn.Embedding.from_pretrained(ftextTensor)
+        self.embedding = nn.Embedding(input_size, hidden_size)
         self.embedding.weight.data.copy_(ftextTensor)
+        self.embedding.weight.requires_grad = False
 
-        #self.fasttext_embedding = fasttext.FastText()
         self.gru = nn.GRU(hidden_size, hidden_size, num_layers)
 
     def forward(self, input, hidden):
-        #print("Input: ", input)
-        #print("Input data: ", input.data)
-
-        #get the fasttext embedding of the vector
-        #embedded = np.squeeze(self.fasttext_embedding.vectors[input.data])
         embedded = self.embedding(input).view(self.num_layers, 1, -1)
-        #print("Embedded len: ", len(embedded))
-        #print("Embedded: ", embedded)
         output = embedded
         output, hidden = self.gru(output, hidden)
         return output, hidden
@@ -117,11 +109,14 @@ def train(input_variable,
           epoch,
           convo_i,
           teacher_forcing_ratio=.5,
-          max_length=MAX_LENGTH):
-
-    ftext = fasttext.FastText()
+          max_length=MAX_LENGTH,
+          ftext = None):
 
     encoder_hidden = encoder.init_hidden()
+    if USE_CUDA:
+        encoder_hidden = encoder_hidden.cuda()
+        input_variable = input_variable.cuda()
+        target_variable = target_variable.cuda()
 
     encoder_optimizer.zero_grad()
     decoder_optimizer.zero_grad()
@@ -181,7 +176,7 @@ def train(input_variable,
             # out_char = out_char / np.sum(out_char)
             # decoder_outputs[di] = np.random.choice(range(VOCAB_SIZE), p=out_char)
 
-            if ni == dataset.EOS_index:
+            if ni == ftext.EOS_index:
                 break
 
 
@@ -189,13 +184,21 @@ def train(input_variable,
     encoder_optimizer.step()
     decoder_optimizer.step()
 
-    # prepare offer
     input_variable = input_variable.view(-1)
-    offer = input_variable.data.numpy()
+    if USE_CUDA:
+        # prepare offer
+        offer = input_variable.cpu().data.numpy()
+        
+        # prepare answer
+        target_variable = target_variable.view(-1)
+        answer = target_variable.cpu().data.numpy()
+    else:
+        # prepare offer
+        offer = input_variable.data.numpy()
 
-    # prepare answer
-    target_variable = target_variable.view(-1)
-    answer = target_variable.data.numpy()
+        # prepare answer
+        target_variable = target_variable.view(-1)
+        answer = target_variable.data.numpy()
 
     # prepare rnn
     for i in range(len(decoder_outputs)):
@@ -204,20 +207,16 @@ def train(input_variable,
     formated_decoder_outputs = decoder_outputs[:i]
     rnn_response = list(map(int, formated_decoder_outputs))
 
-    if convo_i%1 == 0:
+    if convo_i%100 == 0:
         print("\n---------------------------")
         print("Epoch: {}, Step: {}".format(epoch, convo_i))
         print("Loss:   {}".format(loss.data[0] / target_length))
         print("---------------------------\n")
-        #print("Offer: ", dataset.to_phrase(offer))
-        #print("Answer:", dataset.to_phrase(answer))
-        #print("RNN:", dataset.to_phrase(rnn_response))
-        print(type(offer))
-        print(len(offer))
+        if ftext is not None:
+            print("Offer: ", ' '.join(ftext.get_words_from_indices(offer)))
+            print("Answer:", ' '.join(ftext.get_words_from_indices(answer)))
+            print("RNN:", ' '.join(ftext.get_words_from_indices(rnn_response)))
         sys.stdout.flush()
-        print("Offer: ", ' '.join(ftext.get_words_from_indices(offer)))
-        print("Answer:", ' '.join(ftext.get_words_from_indices(answer)))
-        print("RNN:", ' '.join(ftext.get_words_from_indices(rnn_response)))
 
 
 #
@@ -233,13 +232,21 @@ encoder_rnn = EncoderRNN(input_size=VOCAB_SIZE,
                          hidden_size=HIDDEN_SIZE,
                          num_layers=1)
 
+
 decoder_rnn = DecoderRNN(hidden_size=HIDDEN_SIZE,
                          output_size=VOCAB_SIZE,
                          num_layers=1)
 
+if USE_CUDA:
+    encoder_rnn=encoder_rnn.cuda()
+    decoder_rnn=decoder_rnn.cuda()
+
 # loss
 criterion = nn.NLLLoss()
-encoder_optimizer = optim.SGD(encoder_rnn.parameters(), lr=LEARNING_RATE)
+
+encoder_params = filter(lambda p: p.requires_grad, encoder_rnn.parameters())
+encoder_optimizer = optim.SGD(encoder_params, lr=LEARNING_RATE)
+#encoder_optimizer = optim.SGD(encoder_rnn.parameters(), lr=LEARNING_RATE)
 decoder_optimizer = optim.SGD(decoder_rnn.parameters(), lr=LEARNING_RATE)
 
 # main conversation loop
@@ -247,27 +254,24 @@ decoder_optimizer = optim.SGD(decoder_rnn.parameters(), lr=LEARNING_RATE)
 
 f = fasttext.FastText()
 for epoch in range(30):
+#for epoch in range(10):
+    print("Running for " + str(dataset.size()) + " steps...")
     for convo_i in range(dataset.size()):
+    #for convo_i in range(100):
         # translation loop vars
         x, y = dataset.next_batch()
-        x = np.reshape(x, (-1, 1))
-        y = np.reshape(y, (-1, 1))
-
-        #print("x ", x)
-        #print("y ", y)
-
+        
         #HACK to check overfit
-        y = ['SOS','this','is','a','test','.','EOS']
+        #y = ['SOS','this','is','a','test','.','EOS']
 
         x = f.get_indices(x)
         y = f.get_indices(y)
-        #print("x ", x)
-        #print("y ", y)
 
+        x = np.reshape(x, (-1, 1))
+        y = np.reshape(y, (-1, 1))
+        
         x2 = Variable(torch.LongTensor(x))
         y2 = Variable(torch.LongTensor(y))
-        #print("x2 ", x2)
-        #print("y2 ", y2)
 
         train(Variable(torch.LongTensor(x)),
             Variable(torch.LongTensor(y)),
@@ -277,4 +281,5 @@ for epoch in range(30):
             decoder_optimizer,
             criterion,
             epoch,
-            convo_i)
+            convo_i,
+            ftext = f)
