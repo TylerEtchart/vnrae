@@ -11,7 +11,9 @@ import pyro.distributions as dist
 from pyro.infer import SVI
 from pyro.util import ng_zeros, ng_ones
 
-from dataset import Dataset
+#from dataset import Dataset
+from dataset_fasttext import Dataset
+import fasttext
 
 #
 # ===============================================
@@ -25,12 +27,17 @@ from dataset import Dataset
 dataset = Dataset()
 
 # Sizes
-VOCAB_SIZE = dataset.vocab_size
-ENCODER_HIDDEN_SIZE = 256
-DECODER_HIDDEN_SIZE = 512
-Z_DIMENSION = 256
+#VOCAB_SIZE = dataset.vocab_size
+VOCAB_SIZE = 50002
+#ENCODER_HIDDEN_SIZE = 256
+ENCODER_HIDDEN_SIZE = 300
+#DECODER_HIDDEN_SIZE = 512
+DECODER_HIDDEN_SIZE = 600
+#Z_DIMENSION = 256
+Z_DIMENSION = 300
 LEARNING_RATE = .0001
-MAX_LENGTH = 256
+#MAX_LENGTH = 256
+MAX_LENGTH = 300
 USE_CUDA = False
 
 
@@ -47,10 +54,17 @@ class EncoderRNN(nn.Module):
         self.hidden_size = hidden_size
         self.num_layers = num_layers
 
+        ftext = fasttext.FastText()
+        ftextTensor = torch.FloatTensor(ftext.vectors)
         self.embedding = nn.Embedding(input_size, hidden_size)
+        self.embedding.weight.data.copy_(ftextTensor)
+        #self.embedding.weight.requires_grad = False
+
         self.rnn = nn.GRU(hidden_size, hidden_size, num_layers=num_layers)
 
     def forward(self, input, hidden):
+        if USE_CUDA:
+            input = input.cuda()
         embedded = self.embedding(input).view(self.num_layers, 1, -1)
         output = embedded
         output, hidden = self.rnn(output, hidden)
@@ -84,6 +98,8 @@ class DecoderRNN(nn.Module):
         self.softmax = nn.LogSoftmax(dim=1)
 
     def forward(self, input, hidden):
+        if USE_CUDA:
+            input = input.cuda()
         output = self.embedding(input).view(self.num_layers, 1, -1)
         output = F.relu(output)
         output, hidden = self.rnn(output, hidden)
@@ -161,6 +177,9 @@ class VRAE(nn.Module):
                  use_cuda=False):
         super(VRAE, self).__init__()
         # define rnns
+
+        self.ftext = fasttext.FastText()
+
         self.encoder_rnn = EncoderRNN(input_size=vocab_dim,
                                  hidden_size=encoder_hidden_dim,
                                  num_layers=1)
@@ -225,20 +244,32 @@ class VRAE(nn.Module):
         # ----------------------------------------------------------------
         # prepare offer
         input_variable = input_variable.view(-1)
-        offer = input_variable.data.numpy()
+        if self.use_cuda:
+            offer = input_variable.cpu().data.numpy()
+        else:
+            offer = input_variable.data.numpy()
 
         # prepare answer
         target_variable = target_variable.view(-1)
-        answer = target_variable.data.numpy()
+        if self.use_cuda:
+            answer = target_variable.cpu().data.numpy()
+        else:
+            answer = target_variable.data.numpy()
 
         # prepare rnn
         rnn_response = list(map(int, decoder_outputs))
         
         # print output
+        
+        #print("---------------------------")
+        #print("Offer: ", dataset.to_phrase(offer))
+        #print("Answer:", self.dataset.to_phrase(answer))
+        #print("RNN:", self.dataset.to_phrase(rnn_response))
+
         print("---------------------------")
-        print("Offer: ", dataset.to_phrase(offer))
-        print("Answer:", self.dataset.to_phrase(answer))
-        print("RNN:", self.dataset.to_phrase(rnn_response))
+        print("Offer: ", ' '.join(self.ftext.get_words_from_indices(offer)))
+        print("Answer:", ' '.join(self.ftext.get_words_from_indices(answer)))
+        print("RNN:   ", ' '.join(self.ftext.get_words_from_indices(rnn_response)))
         # ----------------------------------------------------------------
 
         decoder_outputs = Variable(torch.Tensor(decoder_outputs))
@@ -289,10 +320,13 @@ vrae = VRAE(dataset,
             MAX_LENGTH,
             USE_CUDA)
 optimizer = optim.Adam({"lr": LEARNING_RATE})
+#encoder_params = filter(lambda p: p.requires_grad, encoder_rnn.parameters())
+#optimizer = optim.Adam(encoder_params, lr=LEARNING_RATE)
 svi = SVI(vrae.model, vrae.guide, optimizer, loss="ELBO")
 
+f=fasttext.FastText()
 
-for epoch in range(30):
+for epoch in range(num_epochs):
     print("Start epoch!")
     # initialize loss accumulator
     epoch_loss = 0.
@@ -300,11 +334,19 @@ for epoch in range(30):
     # returned by the data loader
     for convo_i in range(dataset.size()):
         x, y = dataset.next_batch()
+
+        #HACK to check overfit
+        y = ['SOS', 'this', 'is', 'a', 'test', '.', 'EOS']
+
+        x = f.get_indices(x)
+        y = f.get_indices(y)
+
         x = np.reshape(x, (-1, 1))
         y = np.reshape(y, (-1, 1))
+
         x = Variable(torch.LongTensor(x))
         y = Variable(torch.LongTensor(y))
-        
+
         # do ELBO gradient and accumulate loss
         loss = svi.step(x, y)
         epoch_loss += loss
