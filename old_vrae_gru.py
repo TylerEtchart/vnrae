@@ -47,13 +47,18 @@ class EncoderRNN(nn.Module):
         self.hidden_size = hidden_size
         self.num_layers = num_layers
 
-        self.embedding = nn.Embedding(input_size, hidden_size)
+        self.fc = nn.Linear(input_size, hidden_size)
         self.rnn = nn.GRU(hidden_size, hidden_size, num_layers=num_layers)
 
-    def forward(self, input, hidden):
-        embedded = self.embedding(input).view(self.num_layers, 1, -1)
-        output = embedded
-        output, hidden = self.rnn(output, hidden)
+    def forward(self, input_var, hidden):
+        embedded = self.fc(input_var).view(self.num_layers, 1, -1)
+        output, hidden = self.rnn(embedded, hidden)
+
+        if type(self.rnn.weight_ih_l0.grad) == type(None):
+            print("EncoderRNN IH weights are none")
+        if type(self.rnn.weight_hh_l0.grad) == type(None):
+            print("EncoderRNN HH weights are none")
+
         return output, hidden
 
     def init_hidden_lstm(self):
@@ -78,16 +83,22 @@ class DecoderRNN(nn.Module):
         self.hidden_size = hidden_size
         self.num_layers = num_layers
 
-        self.embedding = nn.Embedding(output_size, hidden_size)
+        self.embedding = nn.Linear(output_size, num_layers*hidden_size)
         self.rnn = nn.GRU(hidden_size, hidden_size, num_layers=num_layers)
         self.out = nn.Linear(hidden_size, output_size)
         self.softmax = nn.LogSoftmax(dim=1)
 
-    def forward(self, input, hidden):
-        output = self.embedding(input).view(self.num_layers, 1, -1)
+    def forward(self, input_var, hidden):
+        output = self.embedding(input_var).view(self.num_layers, 1, -1)
         output = F.relu(output)
         output, hidden = self.rnn(output, hidden)
         output = self.softmax(self.out(output[0]))
+
+        if type(self.rnn.weight_ih_l0.grad) == type(None):
+            print("DecoderRNN IH weights are none")
+        if type(self.rnn.weight_hh_l0.grad) == type(None):
+            print("DecoderRNN HH weights are none")
+
         return output, hidden
 
     def init_hidden_lstm(self):
@@ -126,7 +137,10 @@ class EncoderDense(nn.Module):
         z_mu = self.fc_mu(x)
         z_sigma = torch.exp(self.fc_sig(x))
 
-        print("Dense encoder mu grad: ", self.fc_mu.weight.grad)
+        if type(self.fc_mu.weight.grad) == type(None):
+            print("EncoderDense mu grad is none")
+        if type(self.fc_sig.weight.grad) == type(None):
+            print("EncoderDense sig grad is none")
 
         return z_mu, z_sigma
 
@@ -141,7 +155,8 @@ class DecoderDense(nn.Module):
         hidden = self.fc(z)
         hidden = hidden.view(1, 1, self.hidden_dim)
         
-        print("Dense decoder mu grad: ", self.fc.weight.grad)
+        if type(self.fc.weight.grad) == type(None):
+            print("DecoderDense grad is none")
 
         return hidden
 
@@ -168,19 +183,19 @@ class VRAE(nn.Module):
         super(VRAE, self).__init__()
         # define rnns
         self.encoder_rnn = EncoderRNN(input_size=vocab_dim,
-                                 hidden_size=encoder_hidden_dim,
-                                 num_layers=1)
+                                      hidden_size=encoder_hidden_dim,
+                                      num_layers=1)
 
         self.decoder_rnn = DecoderRNN(hidden_size=decoder_hidden_dim,
-                                 output_size=vocab_dim,
-                                 num_layers=1)
+                                      output_size=vocab_dim,
+                                      num_layers=1)
 
         # define dense modules
         self.encoder_dense = EncoderDense(hidden_dim=encoder_hidden_dim,
-                                     z_dim=z_dim)
+                                          z_dim=z_dim)
 
         self.decoder_dense = DecoderDense(z_dim=z_dim,
-                                     hidden_dim=decoder_hidden_dim)
+                                          hidden_dim=decoder_hidden_dim)
 
         if use_cuda:
             # calling cuda() here will put all the parameters of
@@ -192,74 +207,66 @@ class VRAE(nn.Module):
         self.max_length = max_length
 
 
-    def model(self, input_variable, target_variable):
+    def model(self, input_variable, target_variable, step):
         # register PyTorch module `decoder` with Pyro
         pyro.module("decoder_dense", self.decoder_dense)
         pyro.module("decoder_rnn", self.decoder_rnn)
 
         # setup hyperparameters for prior p(z)
         # the type_as ensures we get CUDA Tensors if x is on gpu
-        z_mu = ng_zeros([1, self.z_dim], type_as=x.data)
-        z_sigma = ng_ones([1, self.z_dim], type_as=x.data)
+        z_mu = ng_zeros([1, self.z_dim], type_as=target_variable.data)
+        z_sigma = ng_ones([1, self.z_dim], type_as=target_variable.data)
 
         # sample from prior
         # (value will be sampled by guide when computing the ELBO)
-        z_mu = z_mu.float()
-        z_sigma = z_sigma.float()
         z = pyro.sample("latent", dist.normal, z_mu, z_sigma)
 
         # init vars
-        decoder_hidden = self.decoder_dense(z)
-        target_length = len(target_variable)
-        decoder_input = Variable(torch.LongTensor([[self.dataset.SOS_index]]))
-        decoder_input = decoder_input.cuda() if USE_CUDA else decoder_input
-        decoder_outputs = -np.ones((target_length))
+        target_length = target_variable.shape[0]
 
-        # Teacher forcing
+        decoder_input = dataset.to_onehot([[self.dataset.SOS_index]])
+        decoder_input = decoder_input.cuda() if USE_CUDA else decoder_input
+
+        decoder_outputs = np.ones((target_length))
+        decoder_hidden = self.decoder_dense(z)
+
+        # # Teacher forcing
         for di in range(target_length):
             decoder_output, decoder_hidden = self.decoder_rnn(
                 decoder_input, decoder_hidden)
-            decoder_input = target_variable[di]  
+            decoder_input = target_variable[di]
 
-            topv, topi = decoder_output.data.topk(1)
-            ni = topi[0][0]
-            decoder_outputs[di] = ni
-            # out_char = decoder_output.data.numpy()[0]
-            # out_char = out_char / np.sum(out_char)
-            # decoder_outputs[di] = np.random.choice(range(VOCAB_SIZE), p=out_char)
+            decoder_outputs[di] = np.argmax(decoder_output.data.numpy())
+
+            pyro.observe("obs_{}".format(di), dist.bernoulli, target_variable[di], decoder_output[0])
 
         # ----------------------------------------------------------------
         # prepare offer
-        input_variable = input_variable.view(-1)
-        offer = input_variable.data.numpy()
+        offer = np.argmax(input_variable.data.numpy(), axis=1).astype(int)
 
         # prepare answer
-        target_variable = target_variable.view(-1)
-        answer = target_variable.data.numpy()
+        answer = np.argmax(target_variable.data.numpy(), axis=1).astype(int)
 
         # prepare rnn
         rnn_response = list(map(int, decoder_outputs))
         
         # print output
-        print("---------------------------")
-        print("Offer: ", dataset.to_phrase(offer))
-        print("Answer:", self.dataset.to_phrase(answer))
-        print("RNN:", self.dataset.to_phrase(rnn_response))
+        if step % 10 == 0:
+            print("---------------------------")
+            print("Offer: ", dataset.to_phrase(offer))
+            print("Answer:", self.dataset.to_phrase(answer))
+            print("RNN:", self.dataset.to_phrase(rnn_response))
         # ----------------------------------------------------------------
 
-        decoder_outputs = Variable(torch.Tensor(decoder_outputs))
-        target_variable = target_variable.float()
-        pyro.observe("obs", dist.bernoulli, target_variable, decoder_outputs)
 
-
-    def guide(self, input_variable, target_variable):
+    def guide(self, input_variable, target_variable, step):
         # register PyTorch module `encoder` with Pyro
         pyro.module("encoder_dense", self.encoder_dense)
         pyro.module("encoder_rnn", self.encoder_rnn)
 
         # init vars
-        input_length = len(input_variable)
-        encoder_outputs = Variable(torch.zeros(self.max_length, self.encoder_rnn.hidden_size))
+        input_length = input_variable.shape[0]
+        encoder_outputs = Variable(torch.zeros(input_length, self.encoder_rnn.hidden_size))
         encoder_outputs = encoder_outputs.cuda() if USE_CUDA else encoder_outputs
         encoder_hidden = self.encoder_rnn.init_hidden_gru()
 
@@ -306,15 +313,17 @@ for epoch in range(30):
     # returned by the data loader
     for convo_i in range(dataset.size()):
         x, y = dataset.next_batch()
-        x = np.reshape(x, (-1, 1))
-        y = np.reshape(y, (-1, 1))
-        x = Variable(torch.LongTensor(x))
-        y = Variable(torch.LongTensor(y))
+
+        x = dataset.to_onehot(x, long_type=False)
+        y = dataset.to_onehot(y, long_type=False)
         
         # do ELBO gradient and accumulate loss
-        loss = svi.step(x, y)
+        loss = svi.step(x, y, convo_i)
         epoch_loss += loss
-        print("Epoch: {}, Step: {}, NLL: {}".format(epoch, convo_i, loss))
-        print("---------------------------\n")
 
-    print("Trained epoch: {}, epoch loss: {}".format(epoch, epoch_loss))
+        # print loss
+        if convo_i % 10 == 0:
+            print("Epoch: {}, Step: {}, NLL: {}".format(epoch, convo_i, loss))
+            print("---------------------------\n")
+
+    print("\n\nTrained epoch: {}, epoch loss: {}\n\n".format(epoch, epoch_loss))
