@@ -31,7 +31,7 @@ DECODER_HIDDEN_SIZE = 512
 Z_DIMENSION = 256
 LEARNING_RATE = .0001
 MAX_LENGTH = 256
-USE_CUDA = False
+USE_CUDA = True
 
 
 #
@@ -51,6 +51,8 @@ class EncoderRNN(nn.Module):
         self.rnn = nn.GRU(hidden_size, hidden_size, num_layers=num_layers)
 
     def forward(self, input_var, hidden):
+        if USE_CUDA:
+            input_var = input_var.cuda()
         embedded = self.fc(input_var).view(self.num_layers, 1, -1)
         output, hidden = self.rnn(embedded, hidden)
 
@@ -89,6 +91,8 @@ class DecoderRNN(nn.Module):
         self.softmax = nn.LogSoftmax(dim=1)
 
     def forward(self, input_var, hidden):
+        if USE_CUDA:
+            input_var = input_var.cuda()
         output = self.embedding(input_var).view(self.num_layers, 1, -1)
         output = F.relu(output)
         output, hidden = self.rnn(output, hidden)
@@ -157,6 +161,8 @@ class DecoderDense(nn.Module):
         
         if type(self.fc.weight.grad) == type(None):
             print("DecoderDense grad is none")
+        #else:
+        #    print("DecoderDense gradiant sum", torch.sum(self.fc.weight.grad))
 
         return hidden
 
@@ -236,16 +242,25 @@ class VRAE(nn.Module):
                 decoder_input, decoder_hidden)
             decoder_input = target_variable[di]
 
-            decoder_outputs[di] = np.argmax(decoder_output.data.numpy())
+            if self.use_cuda:
+                decoder_outputs[di] = np.argmax(decoder_output.cpu().data.numpy())
+            else:
+                decoder_outputs[di] = np.argmax(decoder_output.data.numpy())
 
             pyro.observe("obs_{}".format(di), dist.bernoulli, target_variable[di], decoder_output[0])
 
         # ----------------------------------------------------------------
         # prepare offer
-        offer = np.argmax(input_variable.data.numpy(), axis=1).astype(int)
+        if self.use_cuda:
+            offer = np.argmax(input_variable.cpu().data.numpy(), axis=1).astype(int)
+        else:
+            offer = np.argmax(input_variable.data.numpy(), axis=1).astype(int)
 
         # prepare answer
-        answer = np.argmax(target_variable.data.numpy(), axis=1).astype(int)
+        if self.use_cuda:
+            answer = np.argmax(target_variable.cpu().data.numpy(), axis=1).astype(int)
+        else:
+            answer = np.argmax(target_variable.data.numpy(), axis=1).astype(int)
 
         # prepare rnn
         rnn_response = list(map(int, decoder_outputs))
@@ -314,11 +329,17 @@ for epoch in range(30):
     for convo_i in range(dataset.size()):
         x, y = dataset.next_batch()
 
+        #HACK for overfitting
+        y = [100, 30, 11, 1, 0, 24, 8, 4, 17, 11, 1, 6, 0, 9, 4, 8, 6, 24, 9, 1, 101]
+
         x = dataset.to_onehot(x, long_type=False)
         y = dataset.to_onehot(y, long_type=False)
         
         # do ELBO gradient and accumulate loss
-        loss = svi.step(x, y, convo_i)
+        if USE_CUDA:
+            loss = svi.step(x.cuda(), y.cuda(), convo_i)
+        else:
+            loss = svi.step(x, y, convo_i)
         epoch_loss += loss
 
         # print loss
