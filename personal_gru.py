@@ -60,7 +60,7 @@ class MyGru(nn.Module):
         n_t = self.n_t_tanh(self.n_t1(input_var) + r_t)
         h_t = ((1 - z_t) * n_t) + (z_t * hidden)
 
-        return n_t, h_t
+        return h_t, h_t
 
 
 #
