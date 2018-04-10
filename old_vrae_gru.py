@@ -31,6 +31,7 @@ DECODER_HIDDEN_SIZE = 512
 Z_DIMENSION = 256
 LEARNING_RATE = .0001
 MAX_LENGTH = 256
+NUM_LAYERS_FOR_RNNS = 2
 USE_CUDA = False
 
 
@@ -47,7 +48,7 @@ class EncoderRNN(nn.Module):
         self.hidden_size = hidden_size
         self.num_layers = num_layers
 
-        self.fc = nn.Linear(input_size, hidden_size)
+        self.fc = nn.Linear(input_size, num_layers*hidden_size)
         self.rnn = nn.GRU(hidden_size, hidden_size, num_layers=num_layers)
 
     def forward(self, input_var, hidden):
@@ -67,15 +68,15 @@ class EncoderRNN(nn.Module):
         return output, hidden
 
     def init_hidden_lstm(self):
-        result = (Variable(torch.zeros(1, 1, self.hidden_size)),
-                  Variable(torch.zeros(1, 1, self.hidden_size)))
+        result = (Variable(torch.zeros(self.num_layers, 1, self.hidden_size)),
+                  Variable(torch.zeros(self.num_layers, 1, self.hidden_size)))
         if USE_CUDA:
             return result.cuda()
         else:
             return result
 
     def init_hidden_gru(self):
-        result = Variable(torch.zeros(1, 1, self.hidden_size))
+        result = Variable(torch.zeros(self.num_layers, 1, self.hidden_size))
         if USE_CUDA:
             return result.cuda()
         else:
@@ -96,6 +97,9 @@ class DecoderRNN(nn.Module):
     def forward(self, input_var, hidden):
         if USE_CUDA:
             input_var = input_var.cuda()
+
+        hidden = hidden.view(self.num_layers, 1, self.hidden_size)
+
         output = self.embedding(input_var).view(self.num_layers, 1, -1)
         output = F.relu(output)
         output, hidden = self.rnn(output, hidden)
@@ -113,15 +117,15 @@ class DecoderRNN(nn.Module):
         return output, hidden
 
     def init_hidden_lstm(self):
-        result = (Variable(torch.zeros(1, 1, self.hidden_size)),
-                  Variable(torch.zeros(1, 1, self.hidden_size)))
+        result = (Variable(torch.zeros(self.num_layers, 1, self.hidden_size)),
+                  Variable(torch.zeros(self.num_layers, 1, self.hidden_size)))
         if USE_CUDA:
             return result.cuda()
         else:
             return result
 
     def init_hidden_gru(self):
-        result = Variable(torch.zeros(1, 1, self.hidden_size))
+        result = Variable(torch.zeros(self.num_layers, 1, self.hidden_size))
         if USE_CUDA:
             return result.cuda()
         else:
@@ -164,7 +168,6 @@ class DecoderDense(nn.Module):
 
     def forward(self, z):
         hidden = self.fc(z)
-        hidden = hidden.view(1, 1, self.hidden_dim)
         
         if type(self.fc.weight.grad) == type(None):
             print("DecoderDense grad is none")
@@ -192,16 +195,18 @@ class VRAE(nn.Module):
                  z_dim,
                  decoder_hidden_dim,
                  max_length,
+                 num_layers_for_rnns,
                  use_cuda=False):
         super(VRAE, self).__init__()
         # define rnns
+        self.num_layers = num_layers_for_rnns
         self.encoder_rnn = EncoderRNN(input_size=vocab_dim,
                                       hidden_size=encoder_hidden_dim,
-                                      num_layers=1)
+                                      num_layers=self.num_layers)
 
         self.decoder_rnn = DecoderRNN(hidden_size=decoder_hidden_dim,
                                       output_size=vocab_dim,
-                                      num_layers=1)
+                                      num_layers=self.num_layers)
 
         # define dense modules
         self.encoder_dense = EncoderDense(hidden_dim=encoder_hidden_dim,
@@ -227,8 +232,8 @@ class VRAE(nn.Module):
 
         # setup hyperparameters for prior p(z)
         # the type_as ensures we get CUDA Tensors if x is on gpu
-        z_mu = ng_zeros([1, self.z_dim], type_as=target_variable.data)
-        z_sigma = ng_ones([1, self.z_dim], type_as=target_variable.data)
+        z_mu = ng_zeros([self.num_layers, self.z_dim], type_as=target_variable.data)
+        z_sigma = ng_ones([self.num_layers, self.z_dim], type_as=target_variable.data)
 
         # sample from prior
         # (value will be sampled by guide when computing the ELBO)
@@ -322,6 +327,7 @@ vrae = VRAE(dataset,
             Z_DIMENSION,
             DECODER_HIDDEN_SIZE,
             MAX_LENGTH,
+            NUM_LAYERS_FOR_RNNS,
             USE_CUDA)
 optimizer = optim.Adam({"lr": LEARNING_RATE})
 svi = SVI(vrae.model, vrae.guide, optimizer, loss="ELBO")
