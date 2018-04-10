@@ -56,10 +56,13 @@ class EncoderRNN(nn.Module):
         embedded = self.fc(input_var).view(self.num_layers, 1, -1)
         output, hidden = self.rnn(embedded, hidden)
 
+        if type(self.fc.weight.grad) == type(None):
+            print("EncoderRNN fc gradiants are none")
+
         if type(self.rnn.weight_ih_l0.grad) == type(None):
-            print("EncoderRNN IH weights are none")
+            print("EncoderRNN IH gradiants are none")
         if type(self.rnn.weight_hh_l0.grad) == type(None):
-            print("EncoderRNN HH weights are none")
+            print("EncoderRNN HH gradiants are none")
 
         return output, hidden
 
@@ -98,10 +101,14 @@ class DecoderRNN(nn.Module):
         output, hidden = self.rnn(output, hidden)
         output = self.softmax(self.out(output[0]))
 
+        if type(self.embedding.weight.grad) == type(None):
+            print("DecoderRNN embedding weights are none")
         if type(self.rnn.weight_ih_l0.grad) == type(None):
             print("DecoderRNN IH weights are none")
         if type(self.rnn.weight_hh_l0.grad) == type(None):
             print("DecoderRNN HH weights are none")
+        else:
+            print("DecoderRNN HH weight sum ", torch.sum(self.rnn.weight_hh_l0.data))
 
         return output, hidden
 
@@ -161,8 +168,8 @@ class DecoderDense(nn.Module):
         
         if type(self.fc.weight.grad) == type(None):
             print("DecoderDense grad is none")
-        #else:
-        #    print("DecoderDense gradiant sum", torch.sum(self.fc.weight.grad))
+        else:
+            print("DecoderDense weight sum", torch.sum(self.fc.weight.data))
 
         return hidden
 
