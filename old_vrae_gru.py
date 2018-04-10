@@ -31,7 +31,7 @@ DECODER_HIDDEN_SIZE = 512
 Z_DIMENSION = 256
 LEARNING_RATE = .0001
 MAX_LENGTH = 256
-USE_CUDA = True
+USE_CUDA = False
 
 
 #
@@ -91,7 +91,7 @@ class DecoderRNN(nn.Module):
         self.embedding = nn.Linear(output_size, num_layers*hidden_size)
         self.rnn = nn.GRU(hidden_size, hidden_size, num_layers=num_layers)
         self.out = nn.Linear(hidden_size, output_size)
-        self.softmax = nn.LogSoftmax(dim=1)
+        self.softmax = nn.Softmax(dim=1)
 
     def forward(self, input_var, hidden):
         if USE_CUDA:
@@ -107,8 +107,8 @@ class DecoderRNN(nn.Module):
             print("DecoderRNN IH weights are none")
         if type(self.rnn.weight_hh_l0.grad) == type(None):
             print("DecoderRNN HH weights are none")
-        else:
-            print("DecoderRNN HH weight sum ", torch.sum(self.rnn.weight_hh_l0.data))
+        # else:
+        #     print("DecoderRNN HH weight sum ", torch.sum(self.rnn.weight_hh_l0.data))
 
         return output, hidden
 
@@ -168,8 +168,8 @@ class DecoderDense(nn.Module):
         
         if type(self.fc.weight.grad) == type(None):
             print("DecoderDense grad is none")
-        else:
-            print("DecoderDense weight sum", torch.sum(self.fc.weight.data))
+        # else:
+        #     print("DecoderDense weight sum", torch.sum(self.fc.weight.data))
 
         return hidden
 
@@ -337,7 +337,7 @@ for epoch in range(30):
         x, y = dataset.next_batch()
 
         #HACK for overfitting
-        y = [100, 30, 11, 1, 0, 24, 8, 4, 17, 11, 1, 6, 0, 9, 4, 8, 6, 24, 9, 1, 101]
+        # y = [100, 30, 11, 1, 0, 24, 8, 4, 17, 11, 1, 6, 0, 9, 4, 8, 6, 24, 9, 1, 101]
 
         x = dataset.to_onehot(x, long_type=False)
         y = dataset.to_onehot(y, long_type=False)
