@@ -13,6 +13,7 @@ from pyro.util import ng_zeros, ng_ones
 
 import fasttext
 from dataset_fasttext import Dataset
+import sys
 
 #
 # ===============================================
@@ -33,7 +34,9 @@ Z_DIMENSION =300
 LEARNING_RATE = .0001
 MAX_LENGTH = 300
 NUM_LAYERS_FOR_RNNS = 1
+
 USE_CUDA = True
+TEACHER_FORCING = False
 
 
 #
@@ -262,12 +265,17 @@ class VRAE(nn.Module):
         for di in range(target_length):
             decoder_output, decoder_hidden = self.decoder_rnn(
                 decoder_input, decoder_hidden)
-            decoder_input = target_variable[di]
 
             if self.use_cuda:
                 decoder_outputs[di] = np.argmax(decoder_output.cpu().data.numpy())
             else:
                 decoder_outputs[di] = np.argmax(decoder_output.data.numpy())
+            
+            if TEACHER_FORCING:
+                decoder_input = target_variable[di]
+            else:
+                val = self.dataset.to_onehot(np.array([decoder_outputs[di]]))
+                decoder_input = val
 
             pyro.observe("obs_{}".format(di), dist.bernoulli, target_variable[di], decoder_output[0])
 
@@ -357,7 +365,7 @@ for epoch in range(30):
         x, y = dataset.next_batch()
 
         #HACK for overfitting
-        y = ['SOS', 'this', 'is', 'a', 'test', '.', 'EOS']
+        #y = ['SOS', 'this', 'is', 'a', 'test', '.', 'EOS']
 
         x = f.get_indices(x)
         y = f.get_indices(y)

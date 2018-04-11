@@ -16,20 +16,22 @@ class Dataset:
 
 
     def generate_vocab(self, filename):
-        with codecs.open(filename, "r", encoding='utf-8') as f:
-            data = f.read()
-        counter = Counter(data)
-        count_pairs = sorted(counter.items(), key=lambda x: -x[1])
-        self.chars, _ = zip(*count_pairs)
-        self.chars = list(self.chars)
+        self.vocab_size = 50002 #number of fastText vectors + SOS and EOS
 
-        self.chars.append("SOS ")
-        self.chars.append(" EOS")
+        #with codecs.open(filename, "r", encoding='utf-8') as f:
+        #    data = f.read()
+        #counter = Counter(data)
+        #count_pairs = sorted(counter.items(), key=lambda x: -x[1])
+        #self.chars, _ = zip(*count_pairs)
+        #self.chars = list(self.chars)
 
-        self.vocab_size = len(self.chars)
-        self.vocab = dict(zip(self.chars, range(len(self.chars))))
-        self.EOS_index = self.vocab[" EOS"]
-        self.SOS_index = self.vocab["SOS "]
+        #self.chars.append("SOS ")
+        #self.chars.append(" EOS")
+
+        #self.vocab_size = len(self.chars)
+        #self.vocab = dict(zip(self.chars, range(len(self.chars))))
+        #self.EOS_index = self.vocab[" EOS"]
+        #self.SOS_index = self.vocab["SOS "]
 
     
     def generate_conversations(self, filename):
