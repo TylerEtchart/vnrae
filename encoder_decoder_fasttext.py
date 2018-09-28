@@ -57,6 +57,10 @@ class EncoderRNN(nn.Module):
         embedded = self.embedding(input).view(self.num_layers, 1, -1)
         output = embedded
         output, hidden = self.gru(output, hidden)
+
+        if type(self.gru.weight_ih_l0.grad) == type(None):
+            print("EncoderRNN IH weights are none")
+
         return output, hidden
 
     def init_hidden(self):
@@ -83,6 +87,9 @@ class DecoderRNN(nn.Module):
         output = F.relu(output)
         output, hidden = self.gru(output, hidden)
         output = self.softmax(self.out(output[0]))
+        
+        if type(self.gru.weight_ih_l0.grad) == type(None):
+            print("DecoderRNN IH weights are none")
         return output, hidden
 
     def init_hidden(self):
@@ -136,14 +143,15 @@ def train(input_variable,
             input_variable[ei], encoder_hidden)
         encoder_outputs[ei] = encoder_output[0][0]
 
-    decoder_input = Variable(torch.LongTensor([[dataset.SOS_index]]))
+    decoder_input = Variable(torch.LongTensor([[ftext.SOS_index]]))
     decoder_input = decoder_input.cuda() if USE_CUDA else decoder_input
 
     decoder_hidden = encoder_hidden
 
     use_teacher_forcing = True if np.random.random() < teacher_forcing_ratio else False
 
-    if use_teacher_forcing:
+    #if use_teacher_forcing:
+    if 1:
         # Teacher forcing: Feed the target as the next input
         for di in range(target_length):
             decoder_output, decoder_hidden = decoder(
@@ -207,7 +215,7 @@ def train(input_variable,
     formated_decoder_outputs = decoder_outputs[:i]
     rnn_response = list(map(int, formated_decoder_outputs))
 
-    if convo_i%100 == 0:
+    if convo_i%10 == 0:
         print("\n---------------------------")
         print("Epoch: {}, Step: {}".format(epoch, convo_i))
         print("Loss:   {}".format(loss.data[0] / target_length))
@@ -215,7 +223,7 @@ def train(input_variable,
         if ftext is not None:
             print("Offer: ", ' '.join(ftext.get_words_from_indices(offer)))
             print("Answer:", ' '.join(ftext.get_words_from_indices(answer)))
-            print("RNN:", ' '.join(ftext.get_words_from_indices(rnn_response)))
+            print("RNN:   ", ' '.join(ftext.get_words_from_indices(rnn_response)))
         sys.stdout.flush()
 
 
@@ -270,9 +278,6 @@ for epoch in range(30):
         x = np.reshape(x, (-1, 1))
         y = np.reshape(y, (-1, 1))
         
-        x2 = Variable(torch.LongTensor(x))
-        y2 = Variable(torch.LongTensor(y))
-
         train(Variable(torch.LongTensor(x)),
             Variable(torch.LongTensor(y)),
             encoder_rnn,

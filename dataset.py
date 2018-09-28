@@ -8,7 +8,7 @@ from torch.autograd import Variable
 class Dataset:
 
 
-    def __init__(self, filename="ijcnlp_dailydialog/dialogues_text.txt"):
+    def __init__(self, filename="data/ijcnlp_dailydialog/dialogues_text.txt"):
         self.generate_vocab(filename)
         self.generate_conversations(filename)
         self.create_batches()

@@ -14,6 +14,7 @@ class FastText():
         self.tokens.append('SOS')
         self.vectors = np.vstack([self.vectors, np.zeros(300)])
         self.tokens.append('EOS')
+        self.SOS_index = len(self.vectors-1)
         self.vectors = np.vstack([self.vectors, np.ones(300)])
         self.EOS_index = len(self.vectors-1)
 

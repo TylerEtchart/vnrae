@@ -1,0 +1,1909 @@
+Running for 86060 steps...
+
+---------------------------
+Epoch: 0, Step: 0
+Loss:   10.837769644601005
+---------------------------
+
+Offer:  SOS the kitchen . EOS
+Answer: SOS throw out the garbage . EOS
+RNN: wold fingered lingerie lingerie coleman goat circumference
+
+---------------------------
+Epoch: 0, Step: 100
+Loss:   6.368799209594727
+---------------------------
+
+Offer:  SOS on the other line , can you hold for a minute ? EOS
+Answer: SOS sure . EOS
+RNN: SOS . . .
+
+---------------------------
+Epoch: 0, Step: 200
+Loss:   5.475524139404297
+---------------------------
+
+Offer:  SOS going to the pub tonight . EOS
+Answer: SOS get drunk . EOS
+RNN: SOS SOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 300
+Loss:   7.633412411338405
+---------------------------
+
+Offer:  SOS dad . here comes another bus . EOS
+Answer: SOS fine . get on . oh , no , judy ! get off the bus quickly ! EOS
+RNN: SOS SOS . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 400
+Loss:   5.7861223220825195
+---------------------------
+
+Offer:  SOS i cooked , so EOS
+Answer: SOS okay ! do the dishes . EOS
+RNN: SOS SOS . . EOS EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 500
+Loss:   5.434769948323567
+---------------------------
+
+Offer:  SOS it will cost you $ . EOS
+Answer: SOS by the way , the time ? EOS
+RNN: SOS SOS . EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 600
+Loss:   5.398128509521484
+---------------------------
+
+Offer:  SOS peter , enough with your computer games . go do your homework now . EOS
+Answer: SOS i play more ? EOS
+RNN: SOS . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 700
+Loss:   5.711900075276692
+---------------------------
+
+Offer:  SOS what do you want to be ? EOS
+Answer: SOS dad , i thought about it . still young . EOS
+RNN: SOS , , . . . . . EOS . . EOS
+
+---------------------------
+Epoch: 0, Step: 800
+Loss:   6.79708054486443
+---------------------------
+
+Offer:  SOS why ? EOS
+Answer: SOS this channel has so many advertisements , and it have any good tv programs . EOS
+RNN: SOS , . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 900
+Loss:   6.524215221405029
+---------------------------
+
+Offer:  SOS yes . i m trying to find a pair of earrings to match my necklace . can you recommend some to me ? EOS
+Answer: SOS yes . your gold necklace has a diamond pendant , and your should be EOS
+RNN: SOS i . . EOS . EOS . EOS . EOS . EOS . EOS .
+
+---------------------------
+Epoch: 0, Step: 1000
+Loss:   3.2508106231689453
+---------------------------
+
+Offer:  SOS brazil wins the world cup . EOS
+Answer: SOS yes , i see . EOS
+RNN: SOS . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 1100
+Loss:   7.189593844943577
+---------------------------
+
+Offer:  SOS i hope they will come out well . when should i pick them up ? EOS
+Answer: SOS they will be ready at noon tomorrow . each negative develops one print , right ? EOS
+RNN: SOS , . . . . . . . EOS EOS . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 1200
+Loss:   5.774266756497896
+---------------------------
+
+Offer:  SOS hey , young lady , get back here and have some breakfast . EOS
+Answer: SOS dad ! i have time ! be late for school ! EOS
+RNN: SOS i . . . . . . . . . . .
+
+---------------------------
+Epoch: 0, Step: 1300
+Loss:   3.0162166595458983
+---------------------------
+
+Offer:  SOS i think got a real bargain . EOS
+Answer: SOS thank you . EOS
+RNN: SOS , , . EOS
+
+---------------------------
+Epoch: 0, Step: 1400
+Loss:   4.506864547729492
+---------------------------
+
+Offer:  SOS exactly what i want . how long does it take ? EOS
+Answer: SOS we have and treatments . EOS
+RNN: SOS i , . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 1500
+Loss:   7.13596625077097
+---------------------------
+
+Offer:  SOS mom , i want to get a motorcycle . is that all right with you ? EOS
+Answer: SOS you mean a murder cycle ? did you know more cyclists die in accidents than motorists ? EOS
+RNN: SOS , , , . . . EOS EOS . . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 1600
+Loss:   6.153443556565505
+---------------------------
+
+Offer:  SOS well , where i grew up , we saw movies at a theater in our car with the whole family . EOS
+Answer: SOS cool . i bet you could bring your own food . EOS
+RNN: SOS , , EOS , . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 1700
+Loss:   4.815986633300781
+---------------------------
+
+Offer:  SOS on highway going near exit . EOS
+Answer: SOS what kind of car ? EOS
+RNN: SOS i i . . . EOS
+
+---------------------------
+Epoch: 0, Step: 1800
+Loss:   6.398109799339657
+---------------------------
+
+Offer:  SOS then i guess you get to have a pet . do you know what you want ? EOS
+Answer: SOS i want a dog . my friend dog just had puppies and she said i can have one . EOS
+RNN: SOS i i . EOS . EOS . EOS . EOS EOS . EOS EOS . EOS EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 1900
+Loss:   6.05097557516659
+---------------------------
+
+Offer:  SOS it is heavy and not convenient to take them to the top . EOS
+Answer: SOS how about taking a ? it is light and sweet . children love it . EOS
+RNN: SOS i . EOS . EOS . EOS . EOS . EOS . EOS . EOS .
+
+---------------------------
+Epoch: 0, Step: 2000
+Loss:   5.22528076171875
+---------------------------
+
+Offer:  SOS get a shopping cart . EOS
+Answer: SOS good idea EOS
+RNN: SOS i . .
+
+---------------------------
+Epoch: 0, Step: 2100
+Loss:   3.551603317260742
+---------------------------
+
+Offer:  SOS it suits my taste , take it . do you have ? EOS
+Answer: SOS i have a lot of them . EOS
+RNN: SOS i , . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 2200
+Loss:   5.945235782199436
+---------------------------
+
+Offer:  SOS what style do you want ? EOS
+Answer: SOS like to try a new . could you show me some pictures of hair styles ? EOS
+RNN: SOS i . . EOS . EOS . EOS . EOS EOS . EOS EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 2300
+Loss:   4.744615936279297
+---------------------------
+
+Offer:  SOS how long will it take by air ? EOS
+Answer: SOS about days . EOS
+RNN: SOS i . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 2400
+Loss:   3.9104439417521157
+---------------------------
+
+Offer:  SOS oh , sorry to have bothered you . EOS
+Answer: SOS it matter . ! EOS
+RNN: SOS i . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 2500
+Loss:   5.738023122151692
+---------------------------
+
+Offer:  SOS well , , i hope you like it here . this is my favourite restaurant in taipei . it reminds me of my youth when i traveled around europe . EOS
+Answer: SOS it looks wonderful . very authentic . EOS
+RNN: SOS you . . . . . . .
+
+---------------------------
+Epoch: 0, Step: 2600
+Loss:   3.9332611083984377
+---------------------------
+
+Offer:  SOS yes , please . EOS
+Answer: SOS a low . EOS
+RNN: SOS i . . EOS
+
+---------------------------
+Epoch: 0, Step: 2700
+Loss:   3.0450092951456704
+---------------------------
+
+Offer:  SOS ok , the postage is yuan . EOS
+Answer: SOS here you go . EOS
+RNN: SOS i . . . EOS
+
+---------------------------
+Epoch: 0, Step: 2800
+Loss:   3.563182830810547
+---------------------------
+
+Offer:  SOS how about anything for dessert like an apple pie or ice cream ? EOS
+Answer: SOS no , thanks . that will be all . EOS
+RNN: SOS i , , . EOS . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 2900
+Loss:   3.683443341936384
+---------------------------
+
+Offer:  SOS i want to return this cellphone . EOS
+Answer: SOS is there a problem ? EOS
+RNN: SOS i . . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 3000
+Loss:   5.517377580915179
+---------------------------
+
+Offer:  SOS yeah , but we still need rib . maybe we can use some of our savings to pay part of it . EOS
+Answer: SOS and we can take out a loan to pay the rest . EOS
+RNN: SOS i . EOS . EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 3100
+Loss:   4.535320281982422
+---------------------------
+
+Offer:  SOS i would like to buy a new fridge . EOS
+Answer: SOS is there one in particular that you like ? EOS
+RNN: SOS i , . EOS . EOS EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 3200
+Loss:   5.0166147405451
+---------------------------
+
+Offer:  SOS they re in the cabinet next to the sink . EOS
+Answer: SOS where do you keep the dishes , baker ? EOS
+RNN: SOS i . you . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 3300
+Loss:   5.786000765286959
+---------------------------
+
+Offer:  SOS oh . who is the artist ? EOS
+Answer: SOS your daughter . she sold it at the school auction . EOS
+RNN: SOS i . . EOS . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 3400
+Loss:   3.5003232955932617
+---------------------------
+
+Offer:  SOS how much is it ? EOS
+Answer: SOS yuan . EOS
+RNN: SOS i , .
+
+---------------------------
+Epoch: 0, Step: 3500
+Loss:   5.386245303683811
+---------------------------
+
+Offer:  SOS if you like beer , have you tried mixed drinks ? some of them are pretty good . EOS
+Answer: SOS i like beer , just that i get a headache when i drink more than . EOS
+RNN: SOS i , you . EOS . EOS . EOS . EOS . EOS . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 3600
+Loss:   3.0220936366489957
+---------------------------
+
+Offer:  SOS may i have a reservation ? EOS
+Answer: SOS yes , of course . EOS
+RNN: SOS i , . EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 3700
+Loss:   6.099285888671875
+---------------------------
+
+Offer:  SOS what you said is true . but the film producers there are more flexible ways to get more audience . for example , to make more movie , so people will spend money buying them . EOS
+Answer: SOS but it is true that cinemas are losing the attraction they used to have in the past . EOS
+RNN: SOS i , . . . . . . . . . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 3800
+Loss:   5.8055336692116475
+---------------------------
+
+Offer:  SOS great ! arrange a viewing after work tomorrow afternoon . could you tell me the detailed address ? EOS
+Answer: SOS of course . just at lingual road . you can phone me again if you find the right place . EOS
+RNN: SOS i . . . . . . . . . . . . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 3900
+Loss:   3.8917987823486326
+---------------------------
+
+Offer:  SOS no , thanks . we have made a reservation before . EOS
+Answer: SOS can i have your name , please ? EOS
+RNN: SOS i , , . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 4000
+Loss:   4.998489726673473
+---------------------------
+
+Offer:  SOS i had the soup and which all together is £ and my trout for the main course was £ . EOS
+Answer: SOS so £ for me and £ for you . EOS
+RNN: SOS i . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 4100
+Loss:   6.032194137573242
+---------------------------
+
+Offer:  SOS have to think about it . EOS
+Answer: SOS leave your phone number , and i will give you a call if the price gets reduced . EOS
+RNN: SOS i . EOS . EOS . EOS EOS . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 4200
+Loss:   5.275353325737847
+---------------------------
+
+Offer:  SOS ok . get it for you . EOS
+Answer: SOS hmm , i feel very comfortable . EOS
+RNN: SOS i . EOS . EOS . EOS .
+
+---------------------------
+Epoch: 0, Step: 4300
+Loss:   5.988236999511718
+---------------------------
+
+Offer:  SOS well , sir , i know some of our customers are concerned about cruise control . but honda has never had a single cruise control malfunction that led to an accident . EOS
+Answer: SOS i wish it have cruise control . my wife like it either . EOS
+RNN: SOS yes , , , , , . EOS . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 4400
+Loss:   4.606317666860727
+---------------------------
+
+Offer:  SOS okay . EOS
+Answer: SOS be about an hour . are you going to wait ? EOS
+RNN: SOS yes . . . . EOS . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 4500
+Loss:   4.476462554931641
+---------------------------
+
+Offer:  SOS here you are . we have three different colors , white , blue and pink . EOS
+Answer: SOS the price ? EOS
+RNN: SOS yes , , .
+
+---------------------------
+Epoch: 0, Step: 4600
+Loss:   3.146643956502279
+---------------------------
+
+Offer:  SOS do you have a valid license ? EOS
+Answer: SOS yeah . here . EOS
+RNN: SOS i . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 4700
+Loss:   4.139986419677735
+---------------------------
+
+Offer:  SOS that is a long way to go . it is so kind of you to help me . thank you very much . EOS
+Answer: SOS my pleasure . EOS
+RNN: SOS i . . .
+
+---------------------------
+Epoch: 0, Step: 4800
+Loss:   4.072394476996528
+---------------------------
+
+Offer:  SOS good morning , sir . do you have a reservation ? EOS
+Answer: SOS yes . my name is charles . EOS
+RNN: SOS yes , EOS . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 4900
+Loss:   5.995133033165565
+---------------------------
+
+Offer:  SOS i care how much it costs . rolling in it . EOS
+Answer: SOS lucky you ! i buy anything else . flat broke . EOS
+RNN: SOS i . . . EOS . EOS . EOS . EOS .
+
+---------------------------
+Epoch: 0, Step: 5000
+Loss:   5.0913555438701925
+---------------------------
+
+Offer:  SOS no . EOS
+Answer: SOS do you mind my sharing the same table with you ? EOS
+RNN: SOS yes . EOS . EOS . EOS EOS . EOS EOS .
+
+---------------------------
+Epoch: 0, Step: 5100
+Loss:   5.644752502441406
+---------------------------
+
+Offer:  SOS dogs are nice , but they are really energetic , and you need to make sure they get enough exercise every day . EOS
+Answer: SOS having a dog would probably be too much work for me , then . EOS
+RNN: SOS i , you . EOS . EOS . EOS EOS . EOS EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 5200
+Loss:   5.015619277954102
+---------------------------
+
+Offer:  SOS a really good cook . EOS
+Answer: SOS thanks , next time make chicken soup for us . EOS
+RNN: SOS yes . EOS . . EOS . EOS . EOS .
+
+---------------------------
+Epoch: 0, Step: 5300
+Loss:   5.757891203227796
+---------------------------
+
+Offer:  SOS may i have a look at that china tea set ? it is extremely beautiful . EOS
+Answer: SOS made a good choice . this china tea set is unusual . it was made in . EOS
+RNN: SOS i . . . . EOS . . . . . . EOS . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 5400
+Loss:   4.389499240451389
+---------------------------
+
+Offer:  SOS do you know what kind of flowers she likes ? EOS
+Answer: SOS not sure . i know i should know that , but i remember right now . EOS
+RNN: SOS yes . . EOS . . . . . . you . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 5500
+Loss:   3.299982706705729
+---------------------------
+
+Offer:  SOS sending a message ' ' to will do . EOS
+Answer: SOS thank you . have a try . EOS
+RNN: SOS i , i . EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 5600
+Loss:   5.220473819308811
+---------------------------
+
+Offer:  SOS you make it a little cheaper ? EOS
+Answer: SOS oh , no , sir . we already gave you a discount on each item . EOS
+RNN: SOS yes . you . you . EOS . . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 5700
+Loss:   4.841943740844727
+---------------------------
+
+Offer:  SOS mary , come here . found the book our teacher recommended us to buy last week . EOS
+Answer: SOS really ? how much is it ? oh , yuan ! how expensive ! EOS
+RNN: SOS i , EOS . . . . EOS . . . EOS . . EOS
+
+---------------------------
+Epoch: 0, Step: 5800
+Loss:   4.075161743164062
+---------------------------
+
+Offer:  SOS it must be most precious . EOS
+Answer: SOS but it is really worth the price . EOS
+RNN: SOS it it . it . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 5900
+Loss:   1.8756656646728516
+---------------------------
+
+Offer:  SOS shave also , s ir ? EOS
+Answer: SOS yes . EOS
+RNN: SOS yes , ,
+
+---------------------------
+Epoch: 0, Step: 6000
+Loss:   5.289608674890855
+---------------------------
+
+Offer:  SOS i need some . do you have good thickening ? EOS
+Answer: SOS of course . here is our thickening . we also have designed to the . EOS
+RNN: SOS i , you , it . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 6100
+Loss:   5.382776048448351
+---------------------------
+
+Offer:  SOS ivory , please EOS
+Answer: SOS so that is product number , size EOS
+RNN: SOS i , . . . . . .
+
+---------------------------
+Epoch: 0, Step: 6200
+Loss:   4.401114519904642
+---------------------------
+
+Offer:  SOS you have good taste . made of red wood . EOS
+Answer: SOS oh , i like red wood . how much do you charge for it ? EOS
+RNN: SOS yes . . . . . . EOS . . you . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 6300
+Loss:   5.124326070149739
+---------------------------
+
+Offer:  SOS sure broken . EOS
+Answer: SOS no , . i m afraid you put in only one quarter and one dime . EOS
+RNN: SOS i . . . . . . . . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 6400
+Loss:   5.16553840637207
+---------------------------
+
+Offer:  SOS okay . everyone parents let them stay out until two or three in the morning . EOS
+Answer: SOS well . not everyone father . i think you need to be in the house by ten . EOS
+RNN: SOS yes , . . . EOS . . EOS . . EOS EOS . . EOS EOS . .
+
+---------------------------
+Epoch: 0, Step: 6500
+Loss:   3.9948522779676647
+---------------------------
+
+Offer:  SOS can i buy these tax free ? EOS
+Answer: SOS yes . this is a shop . EOS
+RNN: SOS i . . the the the the the
+
+---------------------------
+Epoch: 0, Step: 6600
+Loss:   3.734095573425293
+---------------------------
+
+Offer:  SOS are you ready to order , sir ? EOS
+Answer: SOS the special here ? EOS
+RNN: SOS i , i . EOS
+
+---------------------------
+Epoch: 0, Step: 6700
+Loss:   4.273345674787249
+---------------------------
+
+Offer:  SOS i find the price tag . EOS
+Answer: SOS right here . $ . EOS
+RNN: SOS i , i , i .
+
+---------------------------
+Epoch: 0, Step: 6800
+Loss:   4.809298882117639
+---------------------------
+
+Offer:  SOS and also this soup is cold . EOS
+Answer: SOS really sorry , bring you a hot one right away . EOS
+RNN: SOS yes , i . EOS . . EOS EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 6900
+Loss:   4.640787124633789
+---------------------------
+
+Offer:  SOS fine . and the charge is $ . EOS
+Answer: SOS when will it be available ? EOS
+RNN: SOS yes . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 7000
+Loss:   2.87600462777274
+---------------------------
+
+Offer:  SOS is this to go or to eat here ? EOS
+Answer: SOS to go , please . EOS
+RNN: SOS i you . i . EOS
+
+---------------------------
+Epoch: 0, Step: 7100
+Loss:   4.960218641493055
+---------------------------
+
+Offer:  SOS too small for me to wear . EOS
+Answer: SOS would you like another bigger one ? EOS
+RNN: SOS i . . . EOS . EOS .
+
+---------------------------
+Epoch: 0, Step: 7200
+Loss:   4.225301869710287
+---------------------------
+
+Offer:  SOS yes . sometimes the fault is very small if you have a needle and thread , you can fix it yourself . so a good deal to buy it . EOS
+Answer: SOS oh , easy for me . i think really a good deal . EOS
+RNN: SOS yes , you . a . EOS . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 7300
+Loss:   5.654523213704427
+---------------------------
+
+Offer:  SOS hmm . not too bad . does it have a ? EOS
+Answer: SOS uh , no . analog watches come with . have to get a digital if you want a . EOS
+RNN: SOS thank you . . . . EOS . . EOS . . EOS . . EOS . . EOS .
+
+---------------------------
+Epoch: 0, Step: 7400
+Loss:   5.467994689941406
+---------------------------
+
+Offer:  SOS so kung fu is also a means of , it ? EOS
+Answer: SOS indeed , exactly right ! EOS
+RNN: SOS yes . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 7500
+Loss:   5.095016797383626
+---------------------------
+
+Offer:  SOS will you apologize to her ? EOS
+Answer: SOS no way . it s her who should apologize . EOS
+RNN: SOS i , . EOS . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 7600
+Loss:   4.647195816040039
+---------------------------
+
+Offer:  SOS anything else ? EOS
+Answer: SOS that s all . how much altogether ? EOS
+RNN: SOS i . EOS . EOS . EOS EOS .
+
+---------------------------
+Epoch: 0, Step: 7700
+Loss:   3.928009271621704
+---------------------------
+
+Offer:  SOS i bought all the ingredients this morning , so start ! EOS
+Answer: SOS what do we do first ? EOS
+RNN: SOS i , i , i , i
+
+---------------------------
+Epoch: 0, Step: 7800
+Loss:   5.110044751848493
+---------------------------
+
+Offer:  SOS who will take responsibility for the heating system if it has a problem ? EOS
+Answer: SOS of course we do . it is the landlord s responsibility . EOS
+RNN: SOS yes . . the you EOS . the the . . . EOS
+
+---------------------------
+Epoch: 0, Step: 7900
+Loss:   6.07161119249132
+---------------------------
+
+Offer:  SOS what did you have in mind ? EOS
+Answer: SOS well , first , like to buy a few postcards . my sister used to always send a postcard to herself whenever she went anywhere . i want to do that , too . EOS
+RNN: SOS i , i . . EOS EOS . . EOS EOS . EOS EOS EOS . EOS EOS EOS . EOS EOS EOS EOS . EOS EOS EOS EOS EOS . EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 8000
+Loss:   6.462352868282434
+---------------------------
+
+Offer:  SOS i want the one with the highest interest rate . EOS
+Answer: SOS that would be our plus account . you must pay yuan into your deposit account . in this way you can get % dividend at the end of the year . EOS
+RNN: SOS yes . EOS . . EOS EOS . . EOS EOS EOS EOS EOS . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 8100
+Loss:   4.544453303019206
+---------------------------
+
+Offer:  SOS also way younger than us . EOS
+Answer: SOS know , i first started when i was ten . EOS
+RNN: SOS i . i . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 8200
+Loss:   6.392994403839111
+---------------------------
+
+Offer:  SOS what kind of dog is he ? EOS
+Answer: SOS not sure because the neighbour gave him to us after they moved away . EOS
+RNN: SOS i . . . . . . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 8300
+Loss:   4.294015248616536
+---------------------------
+
+Offer:  SOS the fare is different from the meter . EOS
+Answer: SOS well , madam , the meter was not on at all . you tell me . EOS
+RNN: SOS i , i . the . . the . the the . EOS the the . EOS
+
+---------------------------
+Epoch: 0, Step: 8400
+Loss:   4.430052185058594
+---------------------------
+
+Offer:  SOS how old is she ? EOS
+Answer: SOS about . she is a good girl . EOS
+RNN: SOS i . EOS . ? ? . . EOS
+
+---------------------------
+Epoch: 0, Step: 8500
+Loss:   4.575667988170277
+---------------------------
+
+Offer:  SOS nicholas ? nicholas ? no . he live here any more . moved to morecambe . EOS
+Answer: SOS never ! do you know his new number ? EOS
+RNN: SOS i . . you . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 8600
+Loss:   4.553783098856608
+---------------------------
+
+Offer:  SOS no . and then i often go . EOS
+Answer: SOS wow ! how often do you exercise like that ? EOS
+RNN: SOS i . EOS . . you . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 8700
+Loss:   4.705634190486028
+---------------------------
+
+Offer:  SOS i had to blow my nose . EOS
+Answer: SOS did you have to blow right next to the phone ? EOS
+RNN: SOS i . . . you . . . . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 8800
+Loss:   4.61613400777181
+---------------------------
+
+Offer:  SOS well , all right . but not very good . EOS
+Answer: SOS no problem , rod . i play too hard . EOS
+RNN: SOS i , i . . EOS EOS . . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 8900
+Loss:   5.107473200017756
+---------------------------
+
+Offer:  SOS really ? why ? EOS
+Answer: SOS well , just that i think if you enjoy doing something any more , you should stop doing it . EOS
+RNN: SOS yes , i . EOS . EOS EOS . EOS EOS . EOS EOS . EOS EOS EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 9000
+Loss:   5.482860218394887
+---------------------------
+
+Offer:  SOS of course , too many people . EOS
+Answer: SOS i hate the car columns on the road . EOS
+RNN: SOS yes , i . EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 9100
+Loss:   4.781182352701823
+---------------------------
+
+Offer:  SOS my dear , five flights up ! EOS
+Answer: SOS all ' ll get used to , it is quiet up there . EOS
+RNN: SOS no . . . . . the EOS . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 9200
+Loss:   5.927700042724609
+---------------------------
+
+Offer:  SOS me too . EOS
+Answer: SOS before he made the top three , i was so nervous . i just fear that he might be knocked out . EOS
+RNN: SOS i , , , . . . i . . . . EOS . . . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 9300
+Loss:   4.1679426829020185
+---------------------------
+
+Offer:  SOS turn right at the third light and then go straight for two blocks . EOS
+Answer: SOS is it far ? EOS
+RNN: SOS yes , i . .
+
+---------------------------
+Epoch: 0, Step: 9400
+Loss:   5.298265959087171
+---------------------------
+
+Offer:  SOS it be that bad . EOS
+Answer: SOS i wish it , but there is actually a lot of crime and prostitution around here . EOS
+RNN: SOS i , . . i you . the . . . . . the . . . EOS
+
+---------------------------
+Epoch: 0, Step: 9500
+Loss:   2.160687174115862
+---------------------------
+
+Offer:  SOS all right , steven . do you have a flashlight ? EOS
+Answer: SOS yes , i do . EOS
+RNN: SOS i , i . you EOS
+
+---------------------------
+Epoch: 0, Step: 9600
+Loss:   5.049832480294364
+---------------------------
+
+Offer:  SOS we really were lucky . we got the last available table for we even have a reservation ! did you see the long lines behind us ? EOS
+Answer: SOS yeah , glad that we have to wait long . starving ! EOS
+RNN: SOS i , i . . EOS . . EOS . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 9700
+Loss:   3.180731455485026
+---------------------------
+
+Offer:  SOS sure . large or medium ? EOS
+Answer: SOS medium , please . EOS
+RNN: SOS i . . . EOS
+
+---------------------------
+Epoch: 0, Step: 9800
+Loss:   5.991150379180908
+---------------------------
+
+Offer:  SOS i love chinese food . EOS
+Answer: SOS your favorite dish or dishes ? EOS
+RNN: SOS i , i . . EOS .
+
+---------------------------
+Epoch: 0, Step: 9900
+Loss:   5.12754410963792
+---------------------------
+
+Offer:  SOS worry about the bill . just call . EOS
+Answer: SOS can you show me how to make an overseas call ? EOS
+RNN: SOS i you . . . . you . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 10000
+Loss:   2.633309773036412
+---------------------------
+
+Offer:  SOS of course we have lots of teas ? EOS
+Answer: SOS what do you recommend ? EOS
+RNN: SOS i you you have you EOS
+
+---------------------------
+Epoch: 0, Step: 10100
+Loss:   4.268873596191407
+---------------------------
+
+Offer:  SOS EOS
+Answer: SOS ok . got ' ll be $ . thank you for your will be there in minutes . EOS
+RNN: SOS i , EOS . . . . . EOS you . . . . EOS . . . EOS
+
+---------------------------
+Epoch: 0, Step: 10200
+Loss:   3.2823312282562256
+---------------------------
+
+Offer:  SOS right over here , sir . what size do you wear ? EOS
+Answer: SOS medium . EOS
+RNN: SOS ok , EOS
+
+---------------------------
+Epoch: 0, Step: 10300
+Loss:   4.815803019205729
+---------------------------
+
+Offer:  SOS bill , please . EOS
+Answer: SOS please wait a moment here is the bill . please check it . EOS
+RNN: SOS i . . . . EOS . . EOS . . EOS . .
+
+---------------------------
+Epoch: 0, Step: 10400
+Loss:   5.517699608435998
+---------------------------
+
+Offer:  SOS no , i risk it . EOS
+Answer: SOS how about a delicious dessert then , with our compliment ? EOS
+RNN: SOS i , i . . . . EOS . . EOS .
+
+---------------------------
+Epoch: 0, Step: 10500
+Loss:   2.342085361480713
+---------------------------
+
+Offer:  SOS would you like your hair washed as well ? EOS
+Answer: SOS no , thanks . EOS
+RNN: SOS yes , i . EOS
+
+---------------------------
+Epoch: 0, Step: 10600
+Loss:   3.4348648616245816
+---------------------------
+
+Offer:  SOS i know bob mind . you can bring a date , like that guy from the bar you keep talking about . EOS
+Answer: SOS maybe think about it . EOS
+RNN: SOS i , . the . EOS
+
+---------------------------
+Epoch: 0, Step: 10700
+Loss:   3.266885757446289
+---------------------------
+
+Offer:  SOS and do you like english food ? EOS
+Answer: SOS not all of it . EOS
+RNN: SOS i . EOS . . EOS
+
+---------------------------
+Epoch: 0, Step: 10800
+Loss:   4.459776878356934
+---------------------------
+
+Offer:  SOS then i can buy my own car . EOS
+Answer: SOS splendid . EOS
+RNN: SOS yes , i
+
+---------------------------
+Epoch: 0, Step: 10900
+Loss:   4.789977300734747
+---------------------------
+
+Offer:  SOS waiter , bring me the menu , will you ? EOS
+Answer: SOS just a moment , coming . ( ten minutes later ) . now , what would you like ? EOS
+RNN: SOS yes is is . i . EOS you . . . . EOS . EOS you you . to EOS
+
+---------------------------
+Epoch: 0, Step: 11000
+Loss:   4.087402820587158
+---------------------------
+
+Offer:  SOS tom , darling . try not to be late for dinner tonight , you ? please ! EOS
+Answer: SOS ok . keep my promise . EOS
+RNN: SOS i , i . . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 11100
+Loss:   3.9398915427071706
+---------------------------
+
+Offer:  SOS of course . here you are . EOS
+Answer: SOS then , special tonight ? EOS
+RNN: SOS i , i . . EOS
+
+---------------------------
+Epoch: 0, Step: 11200
+Loss:   5.53549250849971
+---------------------------
+
+Offer:  SOS this seems a pretty nice room , i should say . EOS
+Answer: SOS you bet . this is the room in the district . you know what , i just had all the walls repainted last month . EOS
+RNN: SOS i . . . . . EOS . . EOS EOS . . EOS EOS . . EOS EOS . . EOS EOS . . EOS
+
+---------------------------
+Epoch: 0, Step: 11300
+Loss:   3.790472412109375
+---------------------------
+
+Offer:  SOS down to the basement . EOS
+Answer: SOS do you have a washer down there ? EOS
+RNN: SOS no you . to to . . . EOS
+
+---------------------------
+Epoch: 0, Step: 11400
+Loss:   5.859565099080403
+---------------------------
+
+Offer:  SOS right at the hilton . EOS
+Answer: SOS then go up garden road , past the cathedral . EOS
+RNN: SOS yes , i . EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 11500
+Loss:   4.945500183105469
+---------------------------
+
+Offer:  SOS no , i think so . EOS
+Answer: SOS i do wish i could lose weight . EOS
+RNN: SOS i , i . EOS EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 11600
+Loss:   5.500209808349609
+---------------------------
+
+Offer:  SOS oh , you have to take the shuttle to grand central . EOS
+Answer: SOS which train is that ? which platform does it leave from ? EOS
+RNN: SOS yes to . the ? EOS to to to ? . . EOS
+
+---------------------------
+Epoch: 0, Step: 11700
+Loss:   3.251453399658203
+---------------------------
+
+Offer:  SOS that sounds all right to us . EOS
+Answer: SOS when do you want to move in ? EOS
+RNN: SOS i , you . to the . the EOS
+
+---------------------------
+Epoch: 0, Step: 11800
+Loss:   4.45084228515625
+---------------------------
+
+Offer:  SOS yes , i see . take ' s $ . EOS
+Answer: SOS your change . EOS
+RNN: SOS i , i ,
+
+---------------------------
+Epoch: 0, Step: 11900
+Loss:   3.0205116271972656
+---------------------------
+
+Offer:  SOS and bring you homework with you , please . EOS
+Answer: SOS oh , must i ? EOS
+RNN: SOS i , i . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 12000
+Loss:   2.25337290763855
+---------------------------
+
+Offer:  SOS afraid i . EOS
+Answer: SOS why ? EOS
+RNN: SOS yes , EOS
+
+---------------------------
+Epoch: 0, Step: 12100
+Loss:   5.186710357666016
+---------------------------
+
+Offer:  SOS i want to find a book called gone with the i find it . EOS
+Answer: SOS let me give you a author is EOS
+RNN: SOS i , , . have to . a
+
+---------------------------
+Epoch: 0, Step: 12200
+Loss:   5.812159538269043
+---------------------------
+
+Offer:  SOS the cathedral ? EOS
+Answer: SOS cross the road at the next traffic peak tram is straight miss it . EOS
+RNN: SOS yes , the . the the . . . . the the . . EOS
+
+---------------------------
+Epoch: 0, Step: 12300
+Loss:   4.558785756429036
+---------------------------
+
+Offer:  SOS her home is between the china hotel and li sheng theater . EOS
+Answer: SOS turn right at the second traffic light and you will see it on your left . EOS
+RNN: SOS i you . . . . . . you . . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 12400
+Loss:   4.7432981218610495
+---------------------------
+
+Offer:  SOS go home and get number . call her first myself . EOS
+Answer: SOS great . then call me and let me know if free . EOS
+RNN: SOS i , i . . . i . . . you . EOS
+
+---------------------------
+Epoch: 0, Step: 12500
+Loss:   5.142976548936632
+---------------------------
+
+Offer:  SOS here s an ad . about a big sale of washing machine . do you want to see it ? EOS
+Answer: SOS of course ! let s have a look . great ! in my frame of mind , i d like to but one today . EOS
+RNN: SOS what you . EOS . . . . EOS . . EOS . . EOS . . EOS . . EOS . . EOS . .
+
+---------------------------
+Epoch: 0, Step: 12600
+Loss:   4.936970677869073
+---------------------------
+
+Offer:  SOS the matter , paul ? EOS
+Answer: SOS can you believe this ? i locked my keys in the car , and i have to go to the airport to pick up my aunt . EOS
+RNN: SOS i you have . . EOS EOS . . . . . . i you . a the . the . . the . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 12700
+Loss:   5.583368530273438
+---------------------------
+
+Offer:  SOS daddy , do you think gonna catch any fish today ? been fishing here for more than two hours , and we get nothing . EOS
+Answer: SOS because talking to me all the time . be patient , or there will be no chance to have for dinner today . EOS
+RNN: SOS i , , the . . . . EOS ? . i . . . . , . the a the . . EOS
+
+---------------------------
+Epoch: 0, Step: 12800
+Loss:   4.6195477076939175
+---------------------------
+
+Offer:  SOS and can you dance tango ? EOS
+Answer: SOS oh , really beautiful . but i just dance it well . EOS
+RNN: SOS i , i . . EOS . . EOS EOS . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 12900
+Loss:   5.561093648274739
+---------------------------
+
+Offer:  SOS er , is it cabbage ? EOS
+Answer: SOS cabbage ? is that what they teach at school now ? ok , honey , . EOS
+RNN: SOS i , EOS a . you . . . . . EOS . i . i EOS
+
+---------------------------
+Epoch: 0, Step: 13000
+Loss:   3.9545808271928267
+---------------------------
+
+Offer:  SOS the computer work when i push the power cotton . EOS
+Answer: SOS oh , do you use your computer often ? EOS
+RNN: SOS i , i . EOS EOS . EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 13100
+Loss:   4.401041471041166
+---------------------------
+
+Offer:  SOS what can i do for you , ? EOS
+Answer: SOS i want to buy a cell phone for my daughter . EOS
+RNN: SOS how , to the . for . . the for . EOS
+
+---------------------------
+Epoch: 0, Step: 13200
+Loss:   5.738357120090061
+---------------------------
+
+Offer:  SOS umm , let me think for a moment . we can meet her together after i finish cooking . EOS
+Answer: SOS get knee to knee with her . EOS
+RNN: SOS what , . a . a . EOS
+
+---------------------------
+Epoch: 0, Step: 13300
+Loss:   5.500340388371394
+---------------------------
+
+Offer:  SOS oh ? a surprise . let me see d our birthday . yes , sure this my parking space ! EOS
+Answer: SOS but i saw a red car always parking here before . EOS
+RNN: SOS oh , i . . . EOS EOS . . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 13400
+Loss:   4.531272888183594
+---------------------------
+
+Offer:  SOS not in the mood . EOS
+Answer: SOS the circus . EOS
+RNN: SOS no , . .
+
+---------------------------
+Epoch: 0, Step: 13500
+Loss:   5.195047378540039
+---------------------------
+
+Offer:  SOS wow ! got everything here . all the famous brands . aunt cindy , what is your favorite brand ? EOS
+Answer: SOS i love all the fashionable things . but my favorite brand is chanel . EOS
+RNN: SOS oh , to . . . . EOS you for . . the . EOS
+
+---------------------------
+Epoch: 0, Step: 13600
+Loss:   5.340980529785156
+---------------------------
+
+Offer:  SOS $ . EOS
+Answer: SOS really cheap for shoes like those . ok , take pairs . EOS
+RNN: SOS ok , . a . to . EOS . . you . EOS
+
+---------------------------
+Epoch: 0, Step: 13700
+Loss:   4.554090881347657
+---------------------------
+
+Offer:  SOS sorry , honey , something has cropped up again . i have to deal with it . perhaps i will go to back home till very late . EOS
+Answer: SOS nothing . not the first time anyway . EOS
+RNN: SOS i , i . . . . . .
+
+---------------------------
+Epoch: 0, Step: 13800
+Loss:   4.720287577311198
+---------------------------
+
+Offer:  SOS thanks a lot for calling us . could you tell me more about what you need us to do ? EOS
+Answer: SOS oh , you see , we are on the floor , and moving into the floor in another building . it is about kilometers to get there . EOS
+RNN: SOS oh , you . . you a you a . . you you . . . . a . . EOS . a a . a a . EOS
+
+---------------------------
+Epoch: 0, Step: 13900
+Loss:   4.221237529407848
+---------------------------
+
+Offer:  SOS i recommend you buy a house . it is very suitable for a couple , and some houses are large enough for a family . EOS
+Answer: SOS okay , i will take it into consideration . EOS
+RNN: SOS i , i . . a . . . EOS
+
+---------------------------
+Epoch: 0, Step: 14000
+Loss:   5.556451302987558
+---------------------------
+
+Offer:  SOS medium rare , that s right , sir . i remember your order . EOS
+Answer: SOS well , i m afraid it isn t . it s a bit too well done and rather tough . would you mind changing ? EOS
+RNN: SOS i , i . . . . EOS . . EOS EOS . . EOS EOS . . EOS EOS . . EOS EOS . .
+
+---------------------------
+Epoch: 0, Step: 14100
+Loss:   4.5356895045230265
+---------------------------
+
+Offer:  SOS what do you think of this dress ? do you think it suits me ? EOS
+Answer: SOS sure . why don t you try it on ? the fitting room is over there . EOS
+RNN: SOS i , i you you you are ? ? the EOS EOS . . the the . EOS
+
+---------------------------
+Epoch: 0, Step: 14200
+Loss:   3.6413658687046597
+---------------------------
+
+Offer:  SOS under arrest for concealing illegal drugs . EOS
+Answer: SOS what do you mean ? EOS
+RNN: SOS i . . . . .
+
+---------------------------
+Epoch: 0, Step: 14300
+Loss:   5.629236074594351
+---------------------------
+
+Offer:  SOS um i don t think so . i need the car tonight to pick up your mother . EOS
+Answer: SOS egg ! i told you about it last week ! toes is playing , and eric asked if i would go with him ! EOS
+RNN: SOS no , i , . . the . . . EOS . the . i you . the you EOS you to the . EOS
+
+---------------------------
+Epoch: 0, Step: 14400
+Loss:   5.99275383582482
+---------------------------
+
+Offer:  SOS i like board games . i like chinese chess and draughts . EOS
+Answer: SOS i ve never played chinese chess before , but i ve seen old men playing it in the street . it looks complicated . EOS
+RNN: SOS i . . . . . . . i i . . . . . . . . . . EOS . . . EOS
+
+---------------------------
+Epoch: 0, Step: 14500
+Loss:   5.478820213904748
+---------------------------
+
+Offer:  SOS which kinds of vegetables do people in your country usually eat ? EOS
+Answer: SOS we eat a lot of sweet corn , broccoli and . EOS
+RNN: SOS i have . . . . . . i . you EOS
+
+---------------------------
+Epoch: 0, Step: 14600
+Loss:   2.7034947077433267
+---------------------------
+
+Offer:  SOS perhaps the starter then ? EOS
+Answer: SOS yes , possible . EOS
+RNN: SOS i , i . EOS
+
+---------------------------
+Epoch: 0, Step: 14700
+Loss:   3.680156389872233
+---------------------------
+
+Offer:  SOS yes . it s on this street . keep walking for two blocks and it s on the corner on the right . EOS
+Answer: SOS thanks very much . EOS
+RNN: SOS i . . . .
+
+---------------------------
+Epoch: 0, Step: 14800
+Loss:   4.497758865356445
+---------------------------
+
+Offer:  SOS yes . you know i ve been cooking more kind of food recently and i needed some extra space for spices and ingredients . EOS
+Answer: SOS did you buy new too ? EOS
+RNN: SOS i , i . . . .
+
+---------------------------
+Epoch: 0, Step: 14900
+Loss:   6.63205078125
+---------------------------
+
+Offer:  SOS she s your mother ! EOS
+Answer: SOS how embarrassing ! i don t even recognize a description of my own mother ! how important do you think appearance is ? EOS
+RNN: SOS i , i . . . . . . EOS . . . EOS . . EOS . . EOS . . EOS .
+
+---------------------------
+Epoch: 0, Step: 15000
+Loss:   4.702263832092285
+---------------------------
+
+Offer:  SOS no , not all summer . just for six weeks . EOS
+Answer: SOS afraid i can only rent it for two months . EOS
+RNN: SOS yes . . you . . . the . . EOS
+
+---------------------------
+Epoch: 0, Step: 15100
+Loss:   4.734474583675987
+---------------------------
+
+Offer:  SOS yeah . if we share the cab , be cheaper . besides that your chinese is better than mine . the drivers usually have difficulty understanding me even though i practice my pronunciation carefully . EOS
+Answer: SOS well . worry about it , i will be happy to share the taxi with you . EOS
+RNN: SOS yes , . the . . . EOS . . EOS . . EOS . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 15200
+Loss:   4.38676152910505
+---------------------------
+
+Offer:  SOS yes . go straight ahead till you come to the traffic lights , turn left there and the first turning on the right . EOS
+Answer: SOS straight ahead to the traffic lights , left and then right . EOS
+RNN: SOS yes , , the . . . i you you . . EOS
+
+---------------------------
+Epoch: 0, Step: 15300
+Loss:   3.360187530517578
+---------------------------
+
+Offer:  SOS are you ready to order , sir ? EOS
+Answer: SOS yes . can you show me the menu , please ? EOS
+RNN: SOS yes , EOS you want ? . . . it . EOS
+
+---------------------------
+Epoch: 0, Step: 15400
+Loss:   4.0123617384168835
+---------------------------
+
+Offer:  SOS just buy the shirt . EOS
+Answer: SOS that would be a good idea . EOS
+RNN: SOS i . EOS . EOS EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 15500
+Loss:   4.914710453578404
+---------------------------
+
+Offer:  SOS really convenient . we were wondering if you could take a little off the rent , though . EOS
+Answer: SOS i can take two thousand off . make the rent thousand . EOS
+RNN: SOS i , . . . EOS . . EOS . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 15600
+Loss:   4.6917422612508135
+---------------------------
+
+Offer:  SOS your best good enough . back in my day , clean a whole hospital with a and spit , and be twice as clean as this ! EOS
+Answer: SOS , here we go EOS
+RNN: SOS no , and a and
+
+---------------------------
+Epoch: 0, Step: 15700
+Loss:   5.708228616153493
+---------------------------
+
+Offer:  SOS johnny , have you up your room yet ? EOS
+Answer: SOS not yet , mom . why are you on such a cleanliness kick anyway ? EOS
+RNN: SOS i , i . . EOS EOS . EOS EOS . EOS EOS EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 15800
+Loss:   5.404114667107077
+---------------------------
+
+Offer:  SOS you mean your sister ? EOS
+Answer: SOS no , rick is actually my great uncle , so he is my brother . EOS
+RNN: SOS ok , i is a ! EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 15900
+Loss:   4.450665664672852
+---------------------------
+
+Offer:  SOS so great ! EOS
+Answer: SOS how much are you selling it for ? EOS
+RNN: SOS ok . EOS . . . . . .
+
+---------------------------
+Epoch: 0, Step: 16000
+Loss:   4.630829811096191
+---------------------------
+
+Offer:  SOS i ll tell you what , i can get you some hamsters and we ll take it from there . EOS
+Answer: SOS yay ! EOS
+RNN: SOS i , i
+
+---------------------------
+Epoch: 0, Step: 16100
+Loss:   4.966268539428711
+---------------------------
+
+Offer:  SOS well , on sale today for only $ each . EOS
+Answer: SOS can you describe their taste ? EOS
+RNN: SOS well , i . . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 16200
+Loss:   5.264691439541903
+---------------------------
+
+Offer:  SOS we can print as many as you like . just tell me how many . EOS
+Answer: SOS two thousand should get me through the year . EOS
+RNN: SOS i , . . . EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 16300
+Loss:   4.653044700622559
+---------------------------
+
+Offer:  SOS very well . you will need some stamps for the postcards and i need to weigh that package , too . EOS
+Answer: SOS great . how much is this going to cost ? EOS
+RNN: SOS i , you can you can you can you can you
+
+---------------------------
+Epoch: 0, Step: 16400
+Loss:   4.91026611328125
+---------------------------
+
+Offer:  SOS this next one is from betty . EOS
+Answer: SOS a and car seat ! wow betty , thank you so much ! i really appreciate it ! EOS
+RNN: SOS oh ! ! ! ! EOS ! ! i you ! ! ! EOS ! ! ! ! EOS
+
+---------------------------
+Epoch: 0, Step: 16500
+Loss:   4.750985145568848
+---------------------------
+
+Offer:  SOS which do you prefer , sour soup or soup ? EOS
+Answer: SOS all right with me . not particular about soups . EOS
+RNN: SOS no , . the . EOS ? . the . EOS
+
+---------------------------
+Epoch: 0, Step: 16600
+Loss:   5.513297186957465
+---------------------------
+
+Offer:  SOS how about these famous brands ? such as pierre EOS
+Answer: SOS afraid a bit beyond my means . EOS
+RNN: SOS i , the , . EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 16700
+Loss:   4.447237014770508
+---------------------------
+
+Offer:  SOS good today ? EOS
+Answer: SOS the salmon is good , very fresh . EOS
+RNN: SOS no , . . . please . . EOS
+
+---------------------------
+Epoch: 0, Step: 16800
+Loss:   4.0573272705078125
+---------------------------
+
+Offer:  SOS oh , afraid sold out of those . they were really popular . EOS
+Answer: SOS will you be getting more in . EOS
+RNN: SOS oh . . . . . the EOS
+
+---------------------------
+Epoch: 0, Step: 16900
+Loss:   5.190547943115234
+---------------------------
+
+Offer:  SOS that ? EOS
+Answer: SOS you come back here with me tomorrow , and my treat ! EOS
+RNN: SOS i , i . EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 17000
+Loss:   5.246843465169271
+---------------------------
+
+Offer:  SOS squid balls ? how about some more fruit ! EOS
+Answer: SOS wow ! you really like fruit , huh ? already had plates ! EOS
+RNN: SOS ok , ! ! ! ! EOS ! EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 17100
+Loss:   4.160042762756348
+---------------------------
+
+Offer:  SOS well , not how much , but what going to buy that matters . going ski shopping ! EOS
+Answer: SOS cool ! can i come ? EOS
+RNN: SOS i , . . . . .
+
+---------------------------
+Epoch: 0, Step: 17200
+Loss:   5.115299769810268
+---------------------------
+
+Offer:  SOS morning . what would you like for breakfast ? EOS
+Answer: SOS not quite hungry now . let me think for a while . EOS
+RNN: SOS i , you . EOS you . EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 17300
+Loss:   4.614579772949218
+---------------------------
+
+Offer:  SOS how much ? EOS
+Answer: SOS we demand a of cents for it . EOS
+RNN: SOS yes have . . . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 17400
+Loss:   3.4794876792214136
+---------------------------
+
+Offer:  SOS oh , is it ? EOS
+Answer: SOS would you change it to a new one ? EOS
+RNN: SOS yes you have to is the EOS . . EOS
+
+---------------------------
+Epoch: 0, Step: 17500
+Loss:   4.993022918701172
+---------------------------
+
+Offer:  SOS yes , sir . i will use the you always part your hair on the left ? EOS
+Answer: SOS yes , i looks good . not too ' s just right . how much do i owe you ? EOS
+RNN: SOS i , . . . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 17600
+Loss:   4.5528577916762405
+---------------------------
+
+Offer:  SOS hi , andy . i am going to isabel s . are you coming ? EOS
+Answer: SOS no . the things are too expensive there for me . i afford it . EOS
+RNN: SOS i . EOS . . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 17700
+Loss:   4.514087677001953
+---------------------------
+
+Offer:  SOS alright . a spot open at the far end of the lot . your parking stub . EOS
+Answer: SOS finally ! EOS
+RNN: SOS i . EOS
+
+---------------------------
+Epoch: 0, Step: 17800
+Loss:   5.345688343048096
+---------------------------
+
+Offer:  SOS it s too loud . EOS
+Answer: SOS we ve been looking around for many on earth are you looking for ? EOS
+RNN: SOS i have . . . . it . . . you . . it EOS
+
+---------------------------
+Epoch: 0, Step: 17900
+Loss:   2.664565086364746
+---------------------------
+
+Offer:  SOS do you need every color in the rainbow ? EOS
+Answer: SOS yes ! EOS
+RNN: SOS i , .
+
+---------------------------
+Epoch: 0, Step: 18000
+Loss:   5.058605829874675
+---------------------------
+
+Offer:  SOS i can understand . i was lucky with my oldest she figured it out by herself and didn t tell my son . EOS
+Answer: SOS well , when you tell him , be gentle . it s hard for kids to find out something like that . EOS
+RNN: SOS i , i . . . . EOS . . EOS . EOS . EOS . EOS . EOS . EOS EOS .
+
+---------------------------
+Epoch: 0, Step: 18100
+Loss:   5.016610925847834
+---------------------------
+
+Offer:  SOS thanks . so how are things with you ? EOS
+Answer: SOS pretty good . just bought a new house . EOS
+RNN: SOS i , . . . . . EOS . .
+
+---------------------------
+Epoch: 0, Step: 18200
+Loss:   2.5302867889404297
+---------------------------
+
+Offer:  SOS here we are . EOS
+Answer: SOS thank you . how much is it ? EOS
+RNN: SOS i you . EOS the . the . EOS
+
+---------------------------
+Epoch: 0, Step: 18300
+Loss:   3.6754364013671874
+---------------------------
+
+Offer:  SOS central park , please , but can you make a stop at union square ? i wanna pick up my friend there . EOS
+Answer: SOS of course . EOS
+RNN: SOS i , i ,
+
+---------------------------
+Epoch: 0, Step: 18400
+Loss:   5.096886268028846
+---------------------------
+
+Offer:  SOS fruit juice , cake and and everything . EOS
+Answer: SOS i d like to a glass of tomato juice please . EOS
+RNN: SOS i , i . EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 18500
+Loss:   4.513552739070012
+---------------------------
+
+Offer:  SOS yeah . i hate spending all day in there , too . EOS
+Answer: SOS what do we need ? let s make a list . EOS
+RNN: SOS i . . . . EOS . . EOS EOS . .
+
+---------------------------
+Epoch: 0, Step: 18600
+Loss:   5.935727800641741
+---------------------------
+
+Offer:  SOS sorry to bother you . but i m having a small problem i thought you might be able to help me with . EOS
+Answer: SOS sure paula , shoot ! EOS
+RNN: SOS i . . i you EOS
+
+---------------------------
+Epoch: 0, Step: 18700
+Loss:   5.868712997436523
+---------------------------
+
+Offer:  SOS curse the worst oven in the world . EOS
+Answer: SOS wonderful ! a perfect piece of bread ! EOS
+RNN: SOS i , i . EOS . EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 18800
+Loss:   2.164273125784738
+---------------------------
+
+Offer:  SOS i bought it one size up by mistake . EOS
+Answer: SOS oh , did you ? EOS
+RNN: SOS i , i you . EOS
+
+---------------------------
+Epoch: 0, Step: 18900
+Loss:   5.431726455688477
+---------------------------
+
+Offer:  SOS how about tax and service charge ? EOS
+Answer: SOS only ten percent tax is included in the bill . EOS
+RNN: SOS yes , , you . a . the EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 19000
+Loss:   4.076882362365723
+---------------------------
+
+Offer:  SOS can you see that road side help ? EOS
+Answer: SOS yes , we are going to across real road . EOS
+RNN: SOS yes , i are you to you , , you EOS
+
+---------------------------
+Epoch: 0, Step: 19100
+Loss:   5.499583194130345
+---------------------------
+
+Offer:  SOS great . EOS
+Answer: SOS you could save a couple of dollars by taking it to the dump yourself , though . EOS
+RNN: SOS well are you . EOS . the . the . . the EOS . . EOS . EOS
+
+---------------------------
+Epoch: 0, Step: 19200
+Loss:   2.4681612650553384
+---------------------------
+
+Offer:  SOS you are right . do you have a pen ? EOS
+Answer: SOS here you are . EOS
+RNN: SOS i . have a EOS
+
+---------------------------
+Epoch: 0, Step: 19300
+Loss:   4.5780152214898004
+---------------------------
+
+Offer:  SOS i guess not , huh . EOS
+Answer: SOS well , i m going to move out anyway . the new apartment has central . EOS
+RNN: SOS i , i . . to the . . . EOS you . . . . EOS
+
+---------------------------
+Epoch: 0, Step: 19400
+Loss:   3.609778722127279
+---------------------------
+
+Offer:  SOS oh , too bad . EOS
+Answer: SOS what about roses ? EOS
+RNN: SOS i you the . EOS
+
+---------------------------
+Epoch: 0, Step: 19500
+Loss:   4.3501386642456055
+---------------------------
+
+Offer:  SOS hold on . just minutes . EOS
+Answer: SOS wait on the sidewalk . very kind of you . EOS
+RNN: SOS i , . . . EOS you . . . EOS
+
+---------------------------
+Epoch: 0, Step: 19600
+Loss:   3.6219112873077393
+---------------------------
+
+Offer:  SOS i feel sorry for you . a jungle out there . EOS
+Answer: SOS do you know any places ? EOS
+RNN: SOS i you . , . . EOS
+
+---------------------------
+Epoch: 0, Step: 19700
+Loss:   4.731702041625977
+---------------------------
+
+Offer:  SOS hi , sam . i want to buy a pet . do you have any ideas ? EOS
+Answer: SOS you really should go to pet store . EOS
+RNN: SOS i , i . . . EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 19800
+Loss:   4.054504818386501
+---------------------------
+
+Offer:  SOS please fill out the form for the money also need to pay a one dollar fee . EOS
+Answer: SOS thank much for all your help . EOS
+RNN: SOS i you . a the the . EOS
+
+---------------------------
+Epoch: 0, Step: 19900
+Loss:   5.964488347371419
+---------------------------
+
+Offer:  SOS so , what programs do you have on your laptop ? EOS
+Answer: SOS i ve got all the usual ones for word processing and then i have a few for creating and editing photographs . EOS
+RNN: SOS yes , . a the . . . the . the i . can a new . the . i . . EOS
+
+---------------------------
+Epoch: 0, Step: 20000
+Loss:   5.559621370755709
+---------------------------
+
+Offer:  SOS looks to me like an mm lens . pretty standard , that will do . not like my husband will be stalking celebrities or anything ! EOS
+Answer: SOS so , ahem , can i interest you in any acc EOS
+RNN: SOS i , . . , i , . . . EOS EOS
+
+---------------------------
+Epoch: 0, Step: 20100
+Loss:   5.752414703369141
+---------------------------
+
+Offer:  SOS fine ! let s get a bird then ! we can keep it in its cage and teach it to talk ! a parrot would be awesome ! EOS
+Answer: SOS i ll tell you what , i can get you some hamsters and we ll take it from there . EOS
+RNN: SOS i , a a a a a a a a a a a a a a a a a a a
+
+---------------------------
+Epoch: 0, Step: 20200
+Loss:   5.235524495442708
+---------------------------
+
+Offer:  SOS what ? EOS
+Answer: SOS how are you going to survive here ? i mean , if you do anything for you cook , if you wash clothes , if you clean can you live on your own ? EOS
+RNN: SOS i . i . ? EOS EOS EOS . EOS EOS EOS EOS . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 20300
+Loss:   2.8595093813809482
+---------------------------
+
+Offer:  SOS i even told you what it is yet ! EOS
+Answer: SOS okay , okay , what do you want ? EOS
+RNN: SOS i , i . i i you have to EOS
+
+---------------------------
+Epoch: 0, Step: 20400
+Loss:   3.1509300231933595
+---------------------------
+
+Offer:  SOS i hate computers . sometimes i think they cause more trouble than worth . EOS
+Answer: SOS what are we going to do now ? EOS
+RNN: SOS i i you have to i you . EOS
+
+---------------------------
+Epoch: 0, Step: 20500
+Loss:   4.396954169640174
+---------------------------
+
+Offer:  SOS no . it s swedish . would you like me to demonstrate it for you ? EOS
+Answer: SOS sure . i d like to see how it washes . EOS
+RNN: SOS well , i . . . . EOS . . EOS .
+
+---------------------------
+Epoch: 0, Step: 20600
+Loss:   4.654858222374549
+---------------------------
+
+Offer:  SOS those floor lamps are very nice and you can vary the brightness according to whether you re reading or watching tv . how big is your living room ? EOS
+Answer: SOS it s quite large . it s about square meters . EOS
+RNN: SOS i s the . to EOS s the the . . EOS
+
+---------------------------
+Epoch: 0, Step: 20700
+Loss:   4.761332194010417
+---------------------------
+
+Offer:  SOS just off of the ring road . EOS
+Answer: SOS do you have a big yard ? EOS
+RNN: SOS no , i . . EOS EOS .
+
+---------------------------
+Epoch: 0, Step: 20800
+Loss:   5.911284335823947
+---------------------------
+
+Offer:  SOS i love it . i really enjoy creating a meal from various ingredients and watching my friends enjoy gives me a real sense of you enjoy cooking ? EOS
+Answer: SOS i don t like takes up too much time and i really hate having it clean up after the meal . i can t stand doing the washing up , drying up and putting all the dishes and cutlery away . EOS
+RNN: SOS i , i i . EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 20900
+Loss:   5.27514613758434
+---------------------------
+
+Offer:  SOS i think that it s absolutely gorgeous . EOS
+Answer: SOS there aren t any problems with the apartment ? EOS
+RNN: SOS i , i . . . EOS EOS . .
+
+---------------------------
+Epoch: 0, Step: 21000
+Loss:   4.778223374310662
+---------------------------
+
+Offer:  SOS ok , should i bring anything with me ? EOS
+Answer: SOS no . i might need to see your id card , but about it . EOS
+RNN: SOS i , i . . EOS EOS EOS . EOS EOS EOS EOS EOS EOS EOS
+
+---------------------------
+Epoch: 0, Step: 21100
+Loss:   5.964550515879756
+---------------------------
+
+Offer:  SOS which spices are you going to add to the meat ? EOS
+Answer: SOS these ones one on the left is very spicy , so we must be careful about how much we add . EOS
+RNN: SOS i , i . . . . . . the . . . . EOS . . . EOS . . EOS

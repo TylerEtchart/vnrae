@@ -1,4 +1,5 @@
 import numpy as np
+import pickle
 
 import torch
 import torch.nn as nn
@@ -38,7 +39,7 @@ NUM_LAYERS_FOR_RNNS = 1
 CONTEXT_LENGTH = 5
 
 USE_CUDA = True
-TEACHER_FORCING = False
+TEACHER_FORCING = True
 
 
 #
@@ -280,9 +281,11 @@ class VRAE(nn.Module):
             else:
                 decoder_outputs[di] = np.argmax(decoder_output.data.numpy())
             
-            if TEACHER_FORCING:
+            if TEACHER_FORCING and step%100 != 0:
+                #train using teacher forcing
                 decoder_input = target_variable[di]
             else:
+                #but sample without it
                 val = self.dataset.to_onehot(np.array([decoder_outputs[di]]))
                 decoder_input = val
 
@@ -390,6 +393,8 @@ svi = SVI(vrae.model, vrae.guide, optimizer, loss="ELBO")
 
 f=fasttext.FastText()
 
+total_training_steps = 0
+losses=[]
 for epoch in range(30):
     print("Start epoch!")
     # initialize loss accumulator
@@ -397,6 +402,7 @@ for epoch in range(30):
     # do a training epoch over each mini-batch x
     # returned by the data loader
     for convo_i in range(dataset.size()):
+        total_training_steps += 1
         x, y = dataset.next_batch()
 
         #HACK for overfitting
@@ -411,10 +417,10 @@ for epoch in range(30):
         x = dataset.to_onehot(x, long_type=False)
         y = dataset.to_onehot(y, long_type=False)
 
-        #print("x shape", x.shape)
-        #print("y shape", y.shape)
-        #print(x)
-        #print(y)
+        print("x shape", x.shape)
+        print("y shape", y.shape)
+        print(x)
+        print(y)
         
         # do ELBO gradient and accumulate loss
         if USE_CUDA:
@@ -424,8 +430,14 @@ for epoch in range(30):
         epoch_loss += loss
 
         # print loss
-        if convo_i % 10 == 0:
+        if convo_i % 100 == 0:
             print("Epoch: {}, Step: {}, NLL: {}".format(epoch, convo_i, loss))
             print("---------------------------\n")
+
+        if total_training_steps % 1000 == 0:
+            losses.append(loss)
+        if total_training_steps % 10000 == 0:
+            #save the data
+            pickle.dump(losses, open('losses_vnrae_300.pkl','wb'))
 
     print("\n\nTrained epoch: {}, epoch loss: {}\n\n".format(epoch, epoch_loss))

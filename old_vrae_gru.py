@@ -32,7 +32,7 @@ Z_DIMENSION = 256
 LEARNING_RATE = .0001
 MAX_LENGTH = 256
 NUM_LAYERS_FOR_RNNS = 2
-USE_CUDA = False
+USE_CUDA = True
 
 
 #
@@ -343,7 +343,7 @@ for epoch in range(30):
         x, y = dataset.next_batch()
 
         #HACK for overfitting
-        # y = [100, 30, 11, 1, 0, 24, 8, 4, 17, 11, 1, 6, 0, 9, 4, 8, 6, 24, 9, 1, 101]
+        y = [100, 30, 11, 1, 0, 24, 8, 4, 17, 11, 1, 6, 0, 9, 4, 8, 6, 24, 9, 1, 101]
 
         x = dataset.to_onehot(x, long_type=False)
         y = dataset.to_onehot(y, long_type=False)

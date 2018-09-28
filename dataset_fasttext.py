@@ -17,6 +17,7 @@ class Dataset:
 
     def generate_vocab(self, filename):
         self.vocab_size = 50002 #number of fastText vectors + SOS and EOS
+        self.max_sentence_length = 30
 
         #with codecs.open(filename, "r", encoding='utf-8') as f:
         #    data = f.read()
@@ -45,6 +46,11 @@ class Dataset:
 
             for turn in range(len(text) - 1):
                 self.conversations.append((text[turn], text[turn+1]))
+    
+                #truncate sentences that are too long?
+                #if len(text[turn].split(' ')) < self.max_sentence_length:
+                #    if len(text[turn+1].split(' ')) < self.max_sentence_length:
+                #        self.conversations.append((text[turn], text[turn+1]))
 
 
     def create_batches(self):

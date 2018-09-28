@@ -248,6 +248,10 @@ class VRAE(nn.Module):
         z_mu = ng_zeros([self.num_layers, self.z_dim], type_as=target_variable.data)
         z_sigma = ng_ones([self.num_layers, self.z_dim], type_as=target_variable.data)
 
+        if USE_CUDA:
+            z_mu.cuda()
+            z_sigma.cuda()
+
         # sample from prior
         # (value will be sampled by guide when computing the ELBO)
         z = pyro.sample("latent", dist.normal, z_mu, z_sigma)
